@@ -2,7 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 import { render } from 'storyblok-rich-text-react-renderer';
 
 const DonateSideImageLayout = ({ blok }) => {
-  console.log(blok)
+  // console.log(blok)
   return (
     <div className="flex mt-12">
       <img src={blok.side_image.filename}/>

@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import { useState } from 'react';
 
 const HomeExpandableGridItem = ({ data }) => {
-    console.log(data)
+    // console.log(data)
     const [isExpanded, setIsExpanded] = useState(false)
   return (
     <div className="flex-1 h-fit m-6 p-4 shadow-lg shadow-gray-950 rounded flex flex-col justify-between min-h-[435px]" style={{ borderTopRightRadius: '3.75rem'}}> 

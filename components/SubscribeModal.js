@@ -39,31 +39,31 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
 					<Icon icon="ic:round-close" className="text-3xl" />
 				</button> 
                 </div>
-                        <div class="px-4">{render(title)}</div>
-                        <div class="px-4">{render(text)}</div>
+                        <div className="px-4">{render(title)}</div>
+                        <div className="px-4">{render(text)}</div>
 
-                        <form class="px-4">
-    <div class="mb-4">
-      <label class="block text-gray-700 mb-2" htmlFor="first-name">
+                        <form className="px-4">
+    <div className="mb-4">
+      <label className="block text-gray-700 mb-2" htmlFor="first-name">
         First Name
       </label>
-      <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" />
+      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" />
     </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 mb-2" htmlFor="email">
+    <div className="mb-4">
+      <label className="block text-gray-700 mb-2" htmlFor="email">
         Email
       </label>
-      <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" />
+      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" />
     </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 mb-2" htmlFor="organisation">
+    <div className="mb-4">
+      <label className="block text-gray-700 mb-2" htmlFor="organisation">
         Organisation
       </label>
-      <input class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="organisation" type="text" />
+      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="organisation" type="text" />
     </div>
 
-    <div class="mb-4">
-      <button class="border rounded-full py-2 px-8 focus:outline-none focus:shadow-outline" type="button" >
+    <div className="mb-4">
+      <button className="border rounded-full py-2 px-8 focus:outline-none focus:shadow-outline" type="button" >
         Submit
       </button>
     </div>

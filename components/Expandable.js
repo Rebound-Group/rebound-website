@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import { useState } from 'react';
 
 const Expandable = ({ data }) => {
-    console.log(data)
+    // console.log(data)
     const [isExpanded, setIsExpanded] = useState(false)
   return (
     <div className="my-6 p-4 shadow-lg shadow-gray-950 rounded flex flex-col" onClick={() => setIsExpanded(!isExpanded)}>

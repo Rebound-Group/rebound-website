@@ -2,7 +2,7 @@ import { render } from 'storyblok-rich-text-react-renderer';
 import Expandable from '../Expandable'
 
 const HomeTwoColumn = ({ blok }) => {
-    console.log(blok.expandable)
+    // console.log(blok.expandable)
   return (
     <section className="flex">
         <img src={blok.image.filename} />

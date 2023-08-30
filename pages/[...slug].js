@@ -9,10 +9,10 @@ import {
 
 export default function Page({ story }) {
   story = useStoryblokState(story);
-  console.log(story)
+  // console.log(story)
   const nav = story.content.main_navigation[0]
 
-  console.log(nav)
+  // console.log(nav)
   return (
     <div className={styles.container}>
       <Head>
