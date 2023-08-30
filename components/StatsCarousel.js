@@ -35,7 +35,7 @@ const StatsCarousel = ({ blok }) => {
             <img src="/arrow_left.svg" />
         </button> */}
         <div className="overflow-hidden flex">
-        <Carousel >
+        <Carousel showThumbs={false}>
         {blok.stats_list.map(slide => (
           <div className="wrapper">
           <div className="flex text-2xl font-bold text-white p-8 mb-4 justify-center items-center w-full border border-white rounded-xl">

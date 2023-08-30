@@ -10,7 +10,7 @@ import {
 export default function Page({ story }) {
   story = useStoryblokState(story);
   // console.log(story)
-  const nav = story.content.main_navigation[0]
+  const nav = story.content.main_navigation[0] || null
 
   // console.log(nav)
   return (
@@ -53,7 +53,6 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get("cdn/links/");
-
   let paths = [];
   Object.keys(data.links).forEach((linkKey) => {
     if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") {
@@ -62,6 +61,9 @@ export async function getStaticPaths() {
 
     const slug = data.links[linkKey].slug;
     let splittedSlug = slug.split("/");
+    if(splittedSlug.length > 1){
+      return
+    }
 
     paths.push({ params: { slug: splittedSlug } });
   });
