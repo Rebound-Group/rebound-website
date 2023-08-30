@@ -18,7 +18,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-spring-carousel": "^2.0.19",
     "storyblok-rich-text-react-renderer": "^2.9.0"
   },
   "devDependencies": {
