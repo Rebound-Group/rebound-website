@@ -1,7 +1,7 @@
 {
-  "name": "react-next-storyblok-boilerplate",
+  "name": "rebound-global-website",
   "version": "1.0.0",
-  "description": "Next.js Storyblok Boilerplate",
+  "description": "Rebound Global",
   "main": "index.js",
   "private": true,
   "scripts": {
