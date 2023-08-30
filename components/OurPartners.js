@@ -7,7 +7,7 @@ const OurPartners = ({ blok }) => {
             {render(blok.title)}
         </div>
         <div className="flex justify-between items-baseline">
-            {blok.images.map((image) => (
+            {blok.images && blok.images.map((image) => (
                 <img src={image.filename} key={image.id} className="h-fit w-fit" />
             ))}
         </div>

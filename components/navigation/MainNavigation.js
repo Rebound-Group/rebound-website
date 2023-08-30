@@ -58,10 +58,10 @@ const MainNavigation = ({ data }) => {
                   </div>
 
                   <div className="py-1 flex flex-col">
-                  {data.nav_link.map((item, i) => (
+                  {data.nav_link && data.nav_link.map((item, i) => (
                       <Menu.Item><a className="m-4 flex justify-between items-center max-w-[80%}" href={item.url.url} key={i}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
                     ))}
-                    {data.nav_cta.map((item, i) => (
+                    {data.nav_cta && data.nav_cta.map((item, i) => (
                       <Menu.Item><a className="m-4 flex justify-between items-center max-w-[80%}" href={item.url} key={i}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
                     ))}
                     
@@ -79,10 +79,10 @@ const MainNavigation = ({ data }) => {
     <div className={styles.MainNavigation} style={{ backgroundColor: NavBackgroundColor()}}>
         <a href="/"><img src={data.logo.filename} className="h-fit w-fit" style={{ maxHeight: '42px'}}/></a>
         <div className='flex justify-end items-center'>
-          {data.nav_link.map((item, i) => (
+          {data.nav_link && data.nav_link.map((item, i) => (
             <a className="text-white mr-4" href={item.url.url} key={i}>{item.display_text}</a>
           ))}
-          {data.nav_cta.map((item, i) => (
+          {data.nav_cta && data.nav_cta.map((item, i) => (
             <a className="text-white rounded-full py-2 px-4 mr-4" style={CTABackgroundColor(item.color)} href={item.url} key={i}>{item.display_text}</a>
           ))}
           {data.show_subscribe_cta && (

@@ -12,7 +12,7 @@ const Footer = ({ blok }) => {
             <img className="h-max w-max" src={blok.Logo.filename} />
             <div>{render(blok.Address)}</div>
             <div className="flex">
-            {blok.SocialLink.map((link, i) => (
+            {blok.SocialLink && blok.SocialLink.map((link, i) => (
                 <a href={link.url.url} key={i} className="mr-2 p-2 bg-white basis-8 flex justify-center items-center rounded-full shadow">
                     <img src={link.icon.filename} className=""/>
                 </a>
