@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import styles from '../styles/SubscribeModal.module.css'
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import clsx from 'clsx';
