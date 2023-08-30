@@ -1,0 +1,122 @@
+
+.carousel-controls {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  bottom: -50px;
+  padding: 0;
+}
+
+.carousel-control {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.carousel-control.active {
+  background: black;
+}
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 860px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.carousel-viewport {
+  width: 100%;
+  display: flex;
+  flex-wrap: no-wrap;
+}
+
+.slide {
+  width: 33.3%;
+  flex-shrink: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 450px) {
+  .carousel-wrapper {
+    width: 100%;
+  }
+  .slide {
+    width: 100%;
+  }
+}
+
+.carousel-window {
+  width: calc(100% - 130px);
+  overflow: hidden;
+}
+
+.sample-slide {
+  background: blue;
+  color: white;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.control {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #999;
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.3s linear;
+  opacity: 0.8;
+}
+
+.control:hover {
+  opacity: 1;
+}
+
+.control.right {
+  margin-left: 15px;
+}
+
+.control.right:after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  height: 8px;
+  width: 8px;
+  display: block;
+  transform: rotate(318deg);
+}
+
+.control.left {
+  margin-left: 15px;
+}
+
+.control.inactive {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.control.left:after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  height: 8px;
+  width: 8px;
+  display: block;
+  transform: rotate(130deg);
+}

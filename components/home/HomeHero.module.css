@@ -1,0 +1,20 @@
+.HomeHero {
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 650px;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+/* .WelcomeScreen {
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

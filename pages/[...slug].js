@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-
+import MainNavigation from "../components/navigation/MainNavigation";
 import {
   useStoryblokState,
   getStoryblokApi,
@@ -9,7 +9,10 @@ import {
 
 export default function Page({ story }) {
   story = useStoryblokState(story);
+  console.log(story)
+  const nav = story.content.main_navigation[0]
 
+  console.log(nav)
   return (
     <div className={styles.container}>
       <Head>
@@ -17,9 +20,11 @@ export default function Page({ story }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      {nav && <MainNavigation data={nav} />}
+
+      {/* <header>
         <h1>{story ? story.name : "My Site"}</h1>
-      </header>
+      </header> */}
 
       <StoryblokComponent blok={story.content} />
     </div>

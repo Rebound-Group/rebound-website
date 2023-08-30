@@ -1,0 +1,15 @@
+.MainNavigation {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    padding: 24px 34px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.opaque {
+    background: rgba(0, 0, 0, 0.40);
+}

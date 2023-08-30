@@ -1,5 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import MainNavigation from "../components/navigation/MainNavigation";
+import { useEffect, useState } from "react";
+import { render } from "storyblok-rich-text-react-renderer";
 
 import {
   useStoryblokState,
@@ -9,6 +12,27 @@ import {
 
 export default function Home({ story }) {
   story = useStoryblokState(story);
+  const nav = story.content.main_navigation[0]
+  const welcomeScreen = story.content.welcome_screen[0]
+
+  console.log(story.content.main_navigation[0])
+  const [showWelcome, setShowWelcome] = useState(true)
+  // useEffect(() => {
+  //   if (!sessionStorage.getItem("hasSeenWelcome")) {
+  //     setShowWelcome(true)
+  //     sessionStorage.setItem("hasSeenWelcome", true);
+  //   } else {
+  //     setShowWelcome(false)
+  //   }
+  // },[])
+
+  useEffect(() => {
+    if(showWelcome){
+    document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [showWelcome])
 
   return (
     <div className={styles.container}>
@@ -17,9 +41,20 @@ export default function Home({ story }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      {nav && <MainNavigation data={nav} />}
+      {/* <header>
         <h1>{story ? story.name : "My Site"}</h1>
-      </header>
+      </header> */}
+
+    {showWelcome && (
+      <div className={styles.WelcomeScreen} style={{backgroundImage: `url(${welcomeScreen.images[0].filename})`}}>
+        <img className="max-h-[125px]" height="125px" src={welcomeScreen.logo.filename} />
+          <div className="text-center text-3xl font-serif">
+            {render(welcomeScreen.title)}
+          </div>
+          <button className="border border-melon rounded-full py-4 px-8 text-melon" onClick={() => setShowWelcome(false)}>{welcomeScreen.cta_text}</button>
+      </div>
+    )}
 
       <StoryblokComponent blok={story.content} />
     </div>
