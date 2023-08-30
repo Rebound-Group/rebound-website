@@ -23,7 +23,7 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
             style={{ position: "absolute", top: "0", left: "0", right: "0", bottom: "0", background: "grey", zIndex: "100"}}
 			className="fixed inset-0 z-100 flex items-center justify-center overflow-y-auto"
 		>
-			<div className="flex flex-col text-white w-96 p-8 items-center justify-center">
+			<div className="flex flex-col text-white p-8 items-center justify-center">
 				<Dialog.Overlay className="bg-gray-800" onClick={() => setShowModal(false)}/>
 
                 <div className="flex bg-white text-black max-w-[80%]">
