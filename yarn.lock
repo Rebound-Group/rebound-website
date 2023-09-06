@@ -4146,7 +4146,7 @@
     "rxjs" "^7.5.4"
     "screenfull" "^5.2.0"
 
-"react-spring@^9.4.5-beta.0 ":
+"react-spring@^9.4.5-beta.0 ", "react-spring@^9.7.2":
   "integrity" "sha512-cckALtj79yiaJiAOUNAhtZbdqjvv1bdn/FpobgkckIChc8l6vu0E53WQ+zWru60gINI3JT+oRJSIn2hUVlOvlQ=="
   "resolved" "https://registry.npmjs.org/react-spring/-/react-spring-9.7.2.tgz"
   "version" "9.7.2"
