@@ -59,11 +59,15 @@ const StatsCarousel = ({ blok }) => {
   return (
     <div className={styles.StatsCarousel} style={{backgroundImage: `url(${blok.background_image.filename})`}}>
         <div className="xs:py-8 xs:px-4 md:px-8 md:py-[90px] flex justify-center items-center">
-        <button className="text-2xl xs:hidden md:block w-[100px]" onClick={slideToPrevItem}><img src="/arrow_left.svg" /></button>
+        { blok.stats_list.length > 1 && (
+            <button className="text-2xl xs:hidden md:block w-[100px]" onClick={slideToPrevItem}><img src="/arrow_left.svg" /></button>
+        )}
         <div style={{overflow: 'hidden'}}>
         {carouselFragment}
         </div>
-        <button className="text-2xl xs:hidden md:block w-[100px]" onClick={slideToNextItem}><img src="/arrow_right.svg" /></button>
+        { blok.stats_list.length > 1 && (
+            <button className="text-2xl xs:hidden md:block w-[100px]" onClick={slideToNextItem}><img src="/arrow_right.svg" /></button>
+        )}
         </div>
         {/* <button onClick={slideToPrevItem}>
             <img src="/arrow_left.svg" />

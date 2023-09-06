@@ -8,7 +8,7 @@ const OurGoalOurImageRightSection = ({ blok }) => {
                 <div className="text-2xl xl:w-[75%]">{render(blok.sub_text)}</div>
                 {/* <a className="">{render(blok.sub_text)}</div> */}
             </div>
-            <div className="right-col shrink-0">
+            <div className="right-col shrink-0 xs:hidden md:block md:max-w-[50%]">
                 <img className="" src={blok.image.filename} />
             </div>
         </div>

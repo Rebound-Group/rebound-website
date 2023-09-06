@@ -17,14 +17,14 @@ export default function Home({ story }) {
 
   console.log(story.content.main_navigation[0])
   const [showWelcome, setShowWelcome] = useState(true)
-  // useEffect(() => {
-  //   if (!sessionStorage.getItem("hasSeenWelcome")) {
-  //     setShowWelcome(true)
-  //     sessionStorage.setItem("hasSeenWelcome", true);
-  //   } else {
-  //     setShowWelcome(false)
-  //   }
-  // },[])
+  useEffect(() => {
+    if (!sessionStorage.getItem("hasSeenWelcome")) {
+      setShowWelcome(true)
+      sessionStorage.setItem("hasSeenWelcome", true);
+    } else {
+      setShowWelcome(false)
+    }
+  },[])
 
   useEffect(() => {
     if(showWelcome){
@@ -49,7 +49,7 @@ export default function Home({ story }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Rebound Global</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

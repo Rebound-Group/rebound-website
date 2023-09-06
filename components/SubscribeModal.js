@@ -29,14 +29,14 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
             style={{ position: "absolute", top: "0", left: "0", right: "0", bottom: "0", background: "rgba(0, 0, 0, 0.86)", zIndex: "100"}}
 			className="fixed inset-0 z-100 flex items-center justify-center overflow-y-auto"
 		>
-			<div className="flex flex-col text-white p-8 items-center justify-center">
+			<div className="flex flex-col text-white xs:p-4 md:p-8 items-center justify-center">
 				<Dialog.Overlay style={{ background: "rgba(0, 0, 0, 0.86)"}} onClick={() => setShowModal(false)}/>
 
-                <div className="flex bg-white text-black max-w-[80%]">
+                <div className="flex bg-white text-black xs:max-w-full md:max-w-[80%]">
                     <div className="left-col">
                         <img className="xs:hidden md:block" src={image.filename} />
                     </div>
-                    <div className="right-col p-4" style={{ maxWidth: "55%"}}>
+                    <div className="right-col  xs:p-2 md:p-4 xs:max-w-full md:max-w-[55%]">
                         <div className="w-full flex justify-end">
                     <button
 					className="m-2 text-black"
