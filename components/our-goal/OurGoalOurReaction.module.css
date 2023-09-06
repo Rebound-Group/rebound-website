@@ -1,0 +1,15 @@
+.LeftArrow {
+    position: relative;
+    top: 100%;
+    height: 40px;
+    width: 40px;
+    left: 42vw;
+}
+
+.RightArrow {
+    position: relative;
+    top: 100%;
+    height: 40px;
+    width: 40px;
+    right: 42vw;
+}

@@ -1,11 +1,11 @@
 import { render } from 'storyblok-rich-text-react-renderer';
 
 const OurGoalProjectCarouselSlide = ({ slide }) => {
-//   console.log(slide)
+  console.log(slide)
   return (
-    <div className="p-8 text-center mr-4 flex flex-col shadow-xl border border-slate-300 shrink-0" width={"380px"} style={{ height: "400px", minWidth: "380px"}} >
-        <div><img src={slide.icon.filename} /></div>
-        <div>{render(slide.title)}</div>
+    <div className="p-8 shrink-0 flex-1 text-center flex flex-col justify-center items-center shadow-xl border border-slate-300" style={{ background: "#F2F2F2", boxShadow:"0px 45.8042px 62.46026px 0px rgba(49, 49, 49, 0.10), 0px 1.66561px 1.66561px 0px rgba(0, 0, 0, 0.54)" }}>
+        <div className="mb-4"><img style={{height: "80px", width: "80px"}} src={slide.icon.filename} /></div>
+        <div className="mb-4 text-3xl font-bold">{render(slide.title)}</div>
         <div className=''>{render(slide.text)}</div>
     </div>
   );

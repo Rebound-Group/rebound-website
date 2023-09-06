@@ -25,39 +25,41 @@ a {
 
 p{
   margin-bottom: 12px;
-  font-size: 1rem;
+  font-size: inherit;
 }
 h1 {
-  margin-bottom: 18px;
-  line-height: 1;
-  padding: 12px 0;
+  line-height: 1.15;
   font-size: 6rem;
   font-weight: 700;
   font-family: Playfair Display, serif;
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
 h2 {
-  margin-bottom: 18px;
-  padding: 12px 0;
+  line-height: 1.15;
   font-size: 3rem;
   font-weight: 700;
+  font-family: inherit;
 }
 h3 {
-  margin-bottom: 18px;
-  padding: 12px 0;
+  line-height: 1.15;
   font-size: 2rem;
   font-weight: 700;
 }
 
 h4 {
-  margin-bottom: 18px;
-  padding: 12px 0;
+  line-height: 1.15;
 font-size: 1.2rem;
 font-weight: 700;
 }
 
 h6 {
-  margin-bottom: 18px;
-  padding: 12px 0;
+  line-height: 1.15;
   font-size: 1.6rem;
 }
 
@@ -79,4 +81,32 @@ b {
 
 .max-width-186px {
   max-width: 186px;
+}
+
+.footer h4 {
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+.footer span {
+  margin-bottom: 0;
+}
+
+.three-column-count p {
+  margin-bottom: 0;
+}
+
+.fake-header {
+  height: 90px;
+}
+
+.PolicyContent h3 {
+  margin-bottom: 1rem;
+}
+
+.PolicyContent p {
+  margin-bottom: 1rem;
 }

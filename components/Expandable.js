@@ -6,8 +6,8 @@ const Expandable = ({ data }) => {
     // console.log(data)
     const [isExpanded, setIsExpanded] = useState(false)
   return (
-    <div className="my-6 p-4 shadow-lg shadow-gray-950 rounded flex flex-col" onClick={() => setIsExpanded(!isExpanded)}>
-        <h3 className="text-2xl text-black font-bold mb-2">{data.heading}</h3>
+    <div className="my-6 p-8 shadow-lg shadow-gray-950 rounded flex flex-col hover:cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
+        <h3 className="text-2xl text-black font-bold mb-4">{data.heading}</h3>
         {isExpanded && (
             render(data.content)
         )}

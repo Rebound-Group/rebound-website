@@ -7,10 +7,10 @@ const Footer = ({ blok }) => {
     // const
   return (
   <div className="footer-wrapper bg-gray-light">
-    <div className="footer mt-0 py-8 px-12 flex justify-between">
-        <div className="col-1 flex flex-col justify-between basis-1/3">
+    <div className="footer mt-0 py-8 px-12 flex xs:flex-col md:flex-row lg:flex-row justify-between">
+        <div className="col-1 xs:mb-6 flex flex-col justify-between basis-1/3">
             <img className="h-max w-max" src={blok.Logo.filename} />
-            <div>{render(blok.Address)}</div>
+            <div className="mb-4">{render(blok.Address)}</div>
             <div className="flex">
             {blok.SocialLink && blok.SocialLink.map((link, i) => (
                 <a href={link.url.url} key={i} className="mr-2 p-2 bg-white basis-8 flex justify-center items-center rounded-full shadow">
@@ -19,11 +19,11 @@ const Footer = ({ blok }) => {
             ))}
             </div>
         </div>
-        <div className="col-1 flex flex-col justify-between basis-1/3">
+        <div className="col-1 xs:mb-6  flex flex-col justify-between basis-1/3">
             <div>{render(blok.Contact)}</div>
         </div>
-        <div className="col-1 flex flex-col justify-between basis-1/3">
-            <div>{render(blok.About)}</div>
+        <div className="col-1 xs:mb-6  flex flex-col justify-between basis-1/3">
+            <div className="xs:mb-4">{render(blok.About)}</div>
             <img src={blok.CharityImage.filename} className="h-max w-max"/>
         </div>
     </div>

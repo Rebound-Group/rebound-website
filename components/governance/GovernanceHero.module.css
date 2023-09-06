@@ -9,3 +9,10 @@
     color: white;
     padding-left: 3rem;
 }
+
+@media (min-width: 768px) {
+    .GovernanceHero {
+        max-height: 270px;
+        min-height: 260px;
+    }
+}

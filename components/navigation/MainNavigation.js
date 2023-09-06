@@ -33,7 +33,7 @@ const MainNavigation = ({ data }) => {
           {({ open }) => (
             <>
           <div className="bg-black w-full flex items-center justify-center p-2">
-        <Menu.Button className="absolute text-white mr-8 w-fit"><Icon icon="tabler:menu" /></Menu.Button>
+        <Menu.Button className="absolute text-white text-xl mr-8 w-fit" style={{ left: '12px'}}><Icon icon="tabler:menu" /></Menu.Button>
         <a href="/" className="flex-2"><img src={data.logo.filename} className="h-fit w-fit" style={{ maxHeight: '38px'}}/></a>
         </div>
         <Transition
@@ -47,8 +47,8 @@ const MainNavigation = ({ data }) => {
               >
                 <Menu.Items
                   static
-                  className="origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 ashadow-lg outline-none"
-                  style={{ position: "absolute", top: "0", left: "0", width: "60%", bottom: "0", background: "white", zIndex: "100"}}
+                  className="bg-white border border-gray-200 divide-y divide-gray-100 ashadow-lg outline-none"
+                  style={{ position: "absolute", top: "-56px", left: "0", width: "60%", bottom: "0", height: '100vh', background: "white", zIndex: "100"}}
                 >
                   <div className="p-2 flex bg-black justify-between items-center">
                   <a href="/" className="flex-2"><img src={data.logo.filename} className="h-fit w-fit" style={{ maxHeight: '38px'}}/></a>
@@ -57,12 +57,12 @@ const MainNavigation = ({ data }) => {
                     {/* )} */}
                   </div>
 
-                  <div className="py-1 flex flex-col">
+                  <div className="flex flex-col">
                   {data.nav_link && data.nav_link.map((item, i) => (
-                      <Menu.Item><a className="m-4 flex justify-between items-center max-w-[80%}" href={item.url.url} key={i}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
+                      <Menu.Item><a className="p-4 flex bg-white justify-between items-center max-w-[80%}" href={item.url.url} key={i}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
                     ))}
                     {data.nav_cta && data.nav_cta.map((item, i) => (
-                      <Menu.Item><a className="m-4 flex justify-between items-center max-w-[80%}" href={item.url} key={i}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
+                      <Menu.Item><a className="p-4 flex bg-white justify-between items-center max-w-[80%}" href={item.url} key={i}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
                     ))}
                     
                   </div>
