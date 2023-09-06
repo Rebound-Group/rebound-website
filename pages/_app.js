@@ -28,6 +28,7 @@ import GovernanceTitle from "../components/governance/GovernanceTitle";
 import GovernanceOverview from "../components/governance/GovernanceOverview";
 import PrivacyPolicy from "../components/compliance/PrivacyPolicy";
 import TermsOfService from "../components/compliance/TermsOfService";
+import ContactThankYou from "../components/contact/ContactThankYou";
 
 const components = {
   feature: Feature,
@@ -56,7 +57,8 @@ const components = {
   donate_side_image_layout: DonateSideImageLayout,
   contact_side_image_layout: ContactSideImageLayout,
   privacy_policy: PrivacyPolicy,
-  terms_of_service: TermsOfService
+  terms_of_service: TermsOfService,
+  contact_thank_you: ContactThankYou,
 };
 
 storyblokInit({

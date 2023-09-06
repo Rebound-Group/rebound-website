@@ -6,7 +6,7 @@ import { render } from 'storyblok-rich-text-react-renderer';
 import { Icon } from '@iconify/react';
 
 
-const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
+const ContactThankYou = ({showModal, setShowModal, image, title, text, logo}) => {
     const [hasSubmitted, setHasSubmitted] = useState(false)
     function closeModal() {
         setShowModal(false);
@@ -32,7 +32,7 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
 			<div className="flex flex-col text-white p-8 items-center justify-center">
 				<Dialog.Overlay style={{ background: "rgba(0, 0, 0, 0.86)"}} onClick={() => setShowModal(false)}/>
 
-                <div className="flex bg-white text-black max-w-[80%]">
+                <div className="flex bg-gray-light text-black max-w-[80%]">
                     <div className="left-col">
                         <img className="xs:hidden md:block" src={image.filename} />
                     </div>
@@ -45,47 +45,9 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
 					<Icon icon="ic:round-close" className="text-3xl" />
 				</button> 
                 </div>
-                        <div className="px-4 mb-6">{render(title)}</div>
-                        <div className="px-4 mb-6">{render(text)}</div>
-                {hasSubmitted ? (
-                    <div>
-                        <p className="px-4 mb-4">
-                        Thanks for subscribing.
-                        </p>
-                        <p className="px-4 mb-4">
-                        We'll be in touch soon.
-                        </p>
-                    </div>
-                ) : (
-
-                
-                        <form className="px-4">
-    <div className="mb-4">
-      <label className="block text-gray-700 mb-2" htmlFor="first-name">
-        First Name
-      </label>
-      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" />
-    </div>
-    <div className="mb-4">
-      <label className="block text-gray-700 mb-2" htmlFor="email">
-        Email
-      </label>
-      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" />
-    </div>
-    <div className="mb-4">
-      <label className="block text-gray-700 mb-2" htmlFor="organisation">
-        Organisation
-      </label>
-      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="organisation" type="text" />
-    </div>
-
-    <div className="mb-4">
-      <button className="border rounded-full py-2 px-8 focus:outline-none focus:shadow-outline" type="button" onClick={() => handleSubmit()}>
-        Submit
-      </button>
-    </div>
-  </form>
-  )}
+                        <div className="px-4 mt-8 mb-6 font-bold" style={{ fontSize: "60px",lineHeight: 1}}>{render(title)}</div>
+                        <div className="px-4 mb-8" style={{ fontSize: "24px",lineHeight: 1 }}>{render(text)}</div>
+                        <img className="px-4 mb-6" style={{ maxWidth: "55%"}} src={logo.filename} />
                     </div>
                 </div>
 
@@ -118,4 +80,4 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
   )
 }
 
-export default SubscribeModal
+export default ContactThankYou

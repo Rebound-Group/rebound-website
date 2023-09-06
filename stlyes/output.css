@@ -1329,6 +1329,10 @@ b {
     margin-top: 0px;
   }
 
+  .xs\:mt-12 {
+    margin-top: 3rem;
+  }
+
   .xs\:hidden {
     display: none;
   }
@@ -1408,6 +1412,10 @@ b {
     width: auto;
   }
 
+  .sm\:max-w-\[75\%\] {
+    max-width: 75%;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1469,6 +1477,10 @@ b {
 
   .md\:max-w-\[75\%\] {
     max-width: 75%;
+  }
+
+  .md\:max-w-full {
+    max-width: 100%;
   }
 
   .md\:grid-cols-4 {
