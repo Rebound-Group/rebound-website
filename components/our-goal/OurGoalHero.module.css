@@ -1,11 +1,31 @@
 .OurGoalHero {
     background-size: cover;
     background-repeat: no-repeat;
-    max-height: 370px;
-    min-height: 360px;
+    max-height: 400px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     color: white;
     padding-left: 3rem;
+}
+.OurGoalHero h6 {
+    max-width: 40%;
+}
+
+@media (max-width: 950px) {
+    .OurGoalHero h6 {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .OurGoalHero {
+        max-height: 270px;
+        min-height: 260px;
+        padding-left: 1rem;
+    }
+    .OurGoalHero h6 {
+        max-width: 80%;
+    }
 }

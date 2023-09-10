@@ -38,10 +38,10 @@ export default function Home({ story }) {
     return (
     <div className={styles.WelcomeScreen} style={{backgroundImage: `url(${welcomeScreen.images[0].filename})`}}>
       <img className="max-h-[125px]" height="125px" src={welcomeScreen.logo.filename} />
-        <div className="text-center text-3xl font-serif">
+        <div className="text-center text-3xl mt-4 lg:mt-8  font-serif">
           {render(welcomeScreen.title)}
         </div>
-        <button className="border border-melon rounded-full py-4 px-8 text-melon" onClick={() => setShowWelcome(false)}>{welcomeScreen.cta_text}</button>
+        <button className="border border-melon mt-4 lg:mt-8  rounded-full py-4 px-8 text-melon" onClick={() => setShowWelcome(false)}>{welcomeScreen.cta_text}</button>
     </div>
   )
 }
@@ -61,10 +61,10 @@ export default function Home({ story }) {
     {showWelcome && (
       <div className={styles.WelcomeScreen} style={{backgroundImage: `url(${welcomeScreen.images[0].filename})`}}>
         <img className="max-h-[125px]" height="125px" src={welcomeScreen.logo.filename} />
-          <div className="text-center text-3xl font-serif">
+          <div className="text-center mt-4 lg:mt-8 text-3xl font-serif">
             {render(welcomeScreen.title)}
           </div>
-          <button className="border border-melon rounded-full py-4 px-8 text-melon" onClick={() => setShowWelcome(false)}>{welcomeScreen.cta_text}</button>
+          <button className="border border-melon rounded-full mt-4 lg:mt-8 py-4 px-8 text-melon" onClick={() => setShowWelcome(false)}>{welcomeScreen.cta_text}</button>
       </div>
     )}
 

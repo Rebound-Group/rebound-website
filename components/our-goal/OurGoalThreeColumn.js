@@ -7,7 +7,7 @@ const OurGoalThreeColumn = ({ blok }) => {
         <div className='flex xs:flex-col sm:flex-col md:flex-col lg:flex-row'>
         {blok.items.map((item, i) => (
             <div className="flex md:mr-4 mb-4 flex-1 rounded-2xl shadow-xl" key={i}> 
-                <div className="three-column-count p-4 rounded-2xl xs:text-5xl md:text-6xl font-bold bg-black text-white flex justify-center items-center shrink-0 xs:w-[100px] md:w-[130px]">{render(item.number)} </div>
+                <div className="three-column-count p-4 rounded-2xl xs:text-5xl md:text-6xl font-bold bg-dark-green text-white flex justify-center items-center shrink-0 xs:w-[100px] md:w-[130px]">{render(item.number)} </div>
                 <div className="pr-4 pl-4 pb-0 m-0 flex flex-col justify-center items-center">{render(item.text)}</div>
             </div>
         ))}

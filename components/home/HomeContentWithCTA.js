@@ -2,7 +2,7 @@ import { render } from 'storyblok-rich-text-react-renderer';
 
 const HomeContentWithCTA = ({ blok }) => {
   return (
-    <section className=" p-12 flex flex-col text-center">
+    <section className="xs:p-4 md:p-12 flex flex-col text-center">
         <div className='flex flex-col'>
             <div className='text-3xl mb-4'>
                 {render(blok.title)}

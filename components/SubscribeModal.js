@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import clsx from 'clsx';
@@ -6,8 +6,11 @@ import { render } from 'storyblok-rich-text-react-renderer';
 import { Icon } from '@iconify/react';
 
 
-const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
+const SubscribeModal = ({showModal, setShowModal, image, title, text, thankyouTitle, thankyouText, logo}) => {
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const nameInputRef = useRef(null);
+    const emailInputRef = useRef(null);
+    const organisationInputRef = useRef(null);
     function closeModal() {
         setShowModal(false);
       }
@@ -16,8 +19,22 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
         setShowModal(true);
       }
 
-      const handleSubmit = () => {
-        setHasSubmitted(true)
+      const handleSubmit = async() => {
+
+        const res = await fetch('/api/subscribe-user', {
+            body: JSON.stringify({
+              email: emailInputRef.current.value,
+              first_name: nameInputRef.current.value,
+              organisation: organisationInputRef.current.value,
+            }),
+      
+            headers: {
+              'Content-Type': 'application/json',
+            },
+      
+            method: 'POST',
+          });
+          if(res) setHasSubmitted(true)
       }
 
     
@@ -31,88 +48,59 @@ const SubscribeModal = ({showModal, setShowModal, image, title, text}) => {
 		>
 			<div className="flex flex-col text-white xs:p-4 md:p-8 items-center justify-center">
 				<Dialog.Overlay style={{ background: "rgba(0, 0, 0, 0.86)"}} onClick={() => setShowModal(false)}/>
+                    <div className="flex bg-gray-light text-black xs:max-w-full sm:max-w-[80%]">
+                        <div className="left-col">
+                            <img className="xs:hidden lg:block" src={image.filename} />
+                        </div>
+                        <div className="right-col p-4 xs:max-w-full lg:max-w-[55%]">
+                            <div className="w-full flex justify-end">
+                            <button
+                                className="m-2 text-black"
+                                onClick={() => setShowModal(false)}
+                            >
+                                <Icon icon="ic:round-close" className="text-3xl" />
+                            </button> 
+                        </div>
+                        {hasSubmitted ? (
+                            <>
+                                <div className="px-4 mt-8 mb-6 font-bold xs:text-[40px] sm:text-[60px]">{render(thankyouTitle)}</div>
+                                <div className="px-4 mb-8 xs:text-[20px] sm:text-[24px]">{render(thankyouText)}</div>
+                                <img className="px-4 mb-6" style={{ maxWidth: "55%"}} src={logo.filename} />
+                            </>
+                        ) : (
+                            <>
+                                <div className="px-4 mb-6">{render(title)}</div>
+                                <div className="px-4 mb-6">{render(text)}</div>
+                                <form className="px-4">
+                                    <div className="mb-4">
+                                    <label className="block text-gray-700 mb-2" htmlFor="first-name">
+                                        First Name
+                                    </label>
+                                    <input ref={nameInputRef} className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" />
+                                    </div>
+                                    <div className="mb-4">
+                                    <label className="block text-gray-700 mb-2" htmlFor="email">
+                                        Email
+                                    </label>
+                                    <input ref={emailInputRef} className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" />
+                                    </div>
+                                    <div className="mb-4">
+                                    <label className="block text-gray-700 mb-2" htmlFor="organisation">
+                                        Organisation
+                                    </label>
+                                    <input ref={organisationInputRef} className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="organisation" type="text" />
+                                    </div>
 
-                <div className="flex bg-white text-black xs:max-w-full md:max-w-[80%]">
-                    <div className="left-col">
-                        <img className="xs:hidden md:block" src={image.filename} />
-                    </div>
-                    <div className="right-col  xs:p-2 md:p-4 xs:max-w-full md:max-w-[55%]">
-                        <div className="w-full flex justify-end">
-                    <button
-					className="m-2 text-black"
-					onClick={() => setShowModal(false)}
-				>
-					<Icon icon="ic:round-close" className="text-3xl" />
-				</button> 
-                </div>
-                        <div className="px-4 mb-6">{render(title)}</div>
-                        <div className="px-4 mb-6">{render(text)}</div>
-                {hasSubmitted ? (
-                    <div>
-                        <p className="px-4 mb-4">
-                        Thanks for subscribing.
-                        </p>
-                        <p className="px-4 mb-4">
-                        We'll be in touch soon.
-                        </p>
-                    </div>
-                ) : (
-
-                
-                        <form className="px-4">
-    <div className="mb-4">
-      <label className="block text-gray-700 mb-2" htmlFor="first-name">
-        First Name
-      </label>
-      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" />
-    </div>
-    <div className="mb-4">
-      <label className="block text-gray-700 mb-2" htmlFor="email">
-        Email
-      </label>
-      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" />
-    </div>
-    <div className="mb-4">
-      <label className="block text-gray-700 mb-2" htmlFor="organisation">
-        Organisation
-      </label>
-      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="organisation" type="text" />
-    </div>
-
-    <div className="mb-4">
-      <button className="border rounded-full py-2 px-8 focus:outline-none focus:shadow-outline" type="button" onClick={() => handleSubmit()}>
-        Submit
-      </button>
-    </div>
-  </form>
-  )}
+                                    <div className="mb-4">
+                                    <button className=" bg-melon text-white rounded-full py-2 px-8 focus:outline-none focus:shadow-outline" type="button" onClick={() => handleSubmit()}>
+                                        Submit
+                                    </button>
+                                    </div>
+                                </form>
+                            </>
+                        )}
                     </div>
                 </div>
-
-				{/* <Dialog.Title className="text-red-500 text-3xl">
-					Deactivate account
-				</Dialog.Title>
-				<Dialog.Description className="text-xl m-2">
-					This will permanently deactivate your account
-				</Dialog.Description> */}
-
-				{/* <p className="text-md m-4">
-					Are you sure you want to deactivate your account? All of your data
-					will be permanently removed. This action cannot be undone.
-				</p>
-
-				<button
-					className="w-full m-4 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-					onClick={() => setShowModal(false)}
-				>
-					Deactivate
-				</button>
-				<button
-					className="m-4 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-					onClick={() => setShowModal(false)}
-				>
-					Cancel
-				</button> */}
 			</div>
 		</Dialog>
   )

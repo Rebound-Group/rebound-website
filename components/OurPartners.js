@@ -2,7 +2,7 @@ import { render } from 'storyblok-rich-text-react-renderer';
 
 const OurPartners = ({ blok }) => {
   return (
-    <div className="OurPartners bg-black font-sans p-12 " >
+    <div className="OurPartners bg-dark-green font-sans p-12 " >
         <div className="flex justify-center items-center w-full text-50px color-white font-bold mb-6">
             {render(blok.title)}
         </div>

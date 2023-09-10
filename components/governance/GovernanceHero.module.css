@@ -1,8 +1,8 @@
 .GovernanceHero {
     background-size: cover;
     background-repeat: no-repeat;
-    max-height: 370px;
-    min-height: 360px;
+    max-height: 400px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -10,9 +10,10 @@
     padding-left: 3rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .GovernanceHero {
         max-height: 270px;
         min-height: 260px;
+        padding-left: 1rem;
     }
 }
