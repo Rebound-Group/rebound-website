@@ -163,7 +163,7 @@ const DonateForm = ({disclaimerOne, disclaimerTwo}) => {
             </label>
         </div>
         <div className="mb-12">
-            <p className="text-xs">{render(disclaimerOne)}</p>
+            <div className="text-xs">{render(disclaimerOne)}</div>
         </div>
         <div>
             <p className="font-bold mb-4">Payment Details</p>
@@ -179,7 +179,7 @@ const DonateForm = ({disclaimerOne, disclaimerTwo}) => {
          <div className="p-8 h-[100px] w-full bg-gray-light rounded-xl shadow-xl"></div>
       )} 
         <div>
-            <p className="mt-12 text-xs">{render(disclaimerTwo)}</p>
+            <div className="mt-12 text-xs">{render(disclaimerTwo)}</div>
         </div>
     </div>
   );
