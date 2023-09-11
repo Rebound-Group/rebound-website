@@ -13,17 +13,20 @@
     "@emailjs/browser": "^3.11.0",
     "@headlessui/react": "^1.7.17",
     "@storyblok/react": "^2.4.5",
+    "@stripe/react-stripe-js": "^2.2.0",
+    "@stripe/stripe-js": "^2.1.2",
     "@trendyol-js/react-carousel": "^3.0.2",
     "clsx": "^2.0.0",
     "emailjs": "^4.0.3",
     "isomorphic-unfetch": "^4.0.2",
-    "next": "^12.1.0",
+    "next": "^12.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-spring": "^9.7.2",
     "react-spring-carousel": "^2.0.19",
-    "storyblok-rich-text-react-renderer": "^2.9.0"
+    "storyblok-rich-text-react-renderer": "^2.9.0",
+    "stripe": "^13.5.0"
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
