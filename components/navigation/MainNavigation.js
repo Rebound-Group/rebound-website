@@ -59,10 +59,10 @@ const MainNavigation = ({ data }) => {
 
                   <div className="flex flex-col">
                   {data.nav_link && data.nav_link.map((item, i) => (
-                      <Menu.Item key={item.id}><a className="p-4 flex bg-white justify-between items-center max-w-[80%}" href={item.url.url}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
+                      <Menu.Item key={i*333}><a className="p-4 flex bg-white justify-between items-center max-w-[80%}" href={item.url.url}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
                     ))}
                     {data.nav_cta && data.nav_cta.map((item, i) => (
-                      <Menu.Item key={item.id}><a className="p-4 flex bg-white justify-between items-center max-w-[80%}" href={item.url}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
+                      <Menu.Item key={i*444}><a className="p-4 flex bg-white justify-between items-center max-w-[80%}" href={item.url}>{item.display_text}<Icon icon="octicon:chevron-right-12" /></a></Menu.Item>
                     ))}
                     
                   </div>
@@ -80,10 +80,10 @@ const MainNavigation = ({ data }) => {
         <a href="/"><img src={data.logo.filename} className="h-fit w-fit" style={{ maxHeight: '42px'}}/></a>
         <div className='flex justify-end items-center'>
           {data.nav_link && data.nav_link.map((item, i) => (
-            <a className="text-white mr-4" href={item.url.url} key={item.id}>{item.display_text}</a>
+            <a className="text-white mr-4" href={item.url.url} key={i*222}>{item.display_text}</a>
           ))}
           {data.nav_cta && data.nav_cta.map((item, i) => (
-            <a className="text-white rounded-full py-2 px-4 mr-4" style={CTABackgroundColor(item.color)} href={item.url} key={item.id}>{item.display_text}</a>
+            <a className="text-white rounded-full py-2 px-4 mr-4" style={CTABackgroundColor(item.color)} href={item.url} key={i*111}>{item.display_text}</a>
           ))}
           {data.show_subscribe_cta && (
             <button className="text-white rounded-full py-2 px-4 mr-4" style={CTABackgroundColor(data.subscribe_cta_color)} onClick={() => setShowModal(true)}>{data.subscribe_cta_text}</button>

@@ -11,11 +11,11 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 const DonateForm = ({disclaimerOne, disclaimerTwo}) => {
   const [clientSecret, setClientSecret] = useState("");
   const [subscription, setSubscription] = useState(false)
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState(20)
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [donationType, setDonationType] = useState(null)
+  const [donationType, setDonationType] = useState("Individual")
   const [showOther, setShowOther] = useState(false)
   const [validationErrorMessage, setValidationErrorMessage] = useState(null)
   const [paymentOption, setPaymentOption] = useState(null)
@@ -104,7 +104,7 @@ const DonateForm = ({disclaimerOne, disclaimerTwo}) => {
             <button className={`border w-full rounded-full py-2 px-8 focus:outline-none focus:shadow-outline ${!subscription && "active-button"}`} onClick={() => handleSubscription(false)}>Once</button>
             <button className={`border w-full rounded-full py-2 px-8 focus:outline-none focus:shadow-outline ${subscription && "active-button"}`} onClick={() => handleSubscription(true)}>Monthly</button>
         </div> */}
-        <div className="flex flex-wrap gap-2 justify-between mb-4">
+        <div className="flex flex-wrap gap-2 justify-between mb-6">
             <button className={`border rounded-full flex-1 py-2 px-8 focus:outline-none focus:shadow-outline ${(amount === 10 && !showOther ) && "active-button"}`} onClick={() => handleSetPrice(10)} >$10</button>
             <button className={`border rounded-full flex-1 py-2 px-8 focus:outline-none focus:shadow-outline ${(amount === 20 && !showOther ) && "active-button"}`} onClick={() => handleSetPrice(20)}>$20</button>
             <button className={`border rounded-full flex-1 py-2 px-8 focus:outline-none focus:shadow-outline ${(amount === 30 && !showOther ) && "active-button"}`} onClick={() => handleSetPrice(30)}>$30</button>
