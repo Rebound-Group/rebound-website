@@ -1,8 +1,8 @@
 .HomeHero {
     background-size: cover;
     background-repeat: no-repeat;
-    max-height: 650px;
-    min-height: 650px;
+    max-height: 750px;
+    min-height: 750px;
     display: flex;
     flex-direction: column;
     justify-content: center;

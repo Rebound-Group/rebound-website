@@ -12,6 +12,7 @@ const MainNavigation = ({ data }) => {
     // console.log(data)
     const NavBackgroundColor = () => {
       if(data.background_color === "black") return "#000"
+      if(data.background_color === "green") return "#255F36"
       if(data.background_color === "opaque") return "rgba(0,0,0,0.4)"
       return "none"
     }

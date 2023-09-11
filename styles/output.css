@@ -970,6 +970,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 74 173 / var(--tw-bg-opacity));
+}
+
 .p-12 {
   padding: 3rem;
 }
@@ -1476,6 +1481,10 @@ b {
     display: block;
   }
 
+  .md\:min-h-\[400px\] {
+    min-height: 400px;
+  }
+
   .md\:w-3\/4 {
     width: 75%;
   }
@@ -1506,6 +1515,14 @@ b {
 
   .md\:max-w-full {
     max-width: 100%;
+  }
+
+  .md\:max-w-\[400px\] {
+    max-width: 400px;
+  }
+
+  .md\:max-w-\[600px\] {
+    max-width: 600px;
   }
 
   .md\:flex-row {
