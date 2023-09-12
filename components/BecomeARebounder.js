@@ -7,7 +7,7 @@ const BecomeARebounder = ({ blok }) => {
         <div className="mb-4" style={{ fontSize: "55px"}}>{render(blok.title)}</div>
         <div className='flex xs:flex-col md:flex-row md:justify-between items-start md:items-basline'>
           <div className='mb-4 xs:w-full md:max-w-[60%]'>{render(blok.text)}</div>
-          <a className="bg-melon right text-white text-size max-w-content py-4 px-8 md:ml-8 rounded-full" href={blok.cta_link.url}>{blok.cta_text}</a>
+          <a className="bg-melon right text-white text-size max-w-content py-4 px-8 md:ml-8 rounded-full" href={blok.cta_link.url}>{render(blok.cta_text)}</a>
         </div>
         </div>
     </div>

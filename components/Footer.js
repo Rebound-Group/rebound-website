@@ -3,13 +3,13 @@ import {renderRichText} from "@storyblok/react";
 import { render } from 'storyblok-rich-text-react-renderer';
 
 const Footer = ({ blok }) => {
-    // console.log(blok)
+    console.log(blok.SocialLink)
     // const
   return (
   <div className="footer-wrapper bg-gray-light">
     <div className="footer mt-0 py-8 px-12 flex xs:flex-col md:flex-row lg:flex-row justify-between">
         <div className="col-1 xs:mb-6 flex flex-col justify-between basis-1/3">
-            <img className="h-max w-max" src={blok.Logo.filename} />
+            <img className="h-max w-max mb-4" src={blok.Logo.filename} />
             <div className="mb-4">{render(blok.Address)}</div>
             <div className="flex">
             {blok.SocialLink && blok.SocialLink.map((link, i) => (

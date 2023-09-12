@@ -783,6 +783,10 @@ video {
   max-width: 750px;
 }
 
+.max-w-\[400px\] {
+  max-width: 400px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1410,6 +1414,10 @@ b {
 
   .xs\:text-\[40px\] {
     font-size: 40px;
+  }
+
+  .xs\:text-\[4rem\] {
+    font-size: 4rem;
   }
 }
 

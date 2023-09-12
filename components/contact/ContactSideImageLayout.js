@@ -25,9 +25,9 @@ const ContactSideImageLayout = ({ blok }) => {
 
   const handleSubmit = async () => {
     var params = {
-      service_id: 'service_06dmbor',
-      template_id: 'template_yv94508',
-      user_id: 'o7F9SKvtxjQ8eM5SV',
+      service_id: 'service_xofb05h',
+      template_id: 'template_5go9pub',
+      user_id: 'TPZKA7-Ss8nA4wjuw',
       template_params: {
         'subject': subjectInputRef.current.value,
         'first_name': firstNameInputRef.current.value,
