@@ -15,7 +15,6 @@ export default function Home({ story }) {
   const nav = story.content.main_navigation[0]
   const welcomeScreen = story.content.welcome_screen[0]
 
-  console.log(story.content.main_navigation[0])
   const [showWelcome, setShowWelcome] = useState(true)
   useEffect(() => {
     if (!sessionStorage.getItem("hasSeenWelcome")) {

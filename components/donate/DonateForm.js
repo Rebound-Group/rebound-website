@@ -57,10 +57,6 @@ const DonateForm = ({disclaimerOne, disclaimerTwo}) => {
     return false
   }
 
-  console.log(isValid())
-
-    // console.log(isValid)
-//   useEffect(() => {
   const loadPayment = () => {
     setPaymentOption("Card")
     // const mode = subscription ? "subscription" : "payment"
@@ -77,7 +73,7 @@ const DonateForm = ({disclaimerOne, disclaimerTwo}) => {
             abn: abnInputRef.current.value    
          }
     }
-    console.log(amount)
+
     // Create PaymentIntent as soon as the page loads
     if(isValid()) {
     fetch("/api/create-payment-intent", {

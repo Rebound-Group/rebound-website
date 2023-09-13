@@ -1,17 +1,11 @@
 import { render } from 'storyblok-rich-text-react-renderer';
-// import { Carousel } from 'react-responsive-carousel';
-// import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import styles from './StatsCarousel.module.css'
 
 import { useSpringCarousel } from 'react-spring-carousel'
 
 const StatsCarousel = ({ blok }) => {
-    // const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    // const { width } = useWindowSize();
-    // const isMobile = width <= 450;
 
     const Slide = ({slide}) => {
-        console.log(slide)
         return (
             <div className="wrapper mx-12 w-full flex flex-col justify-center items-center ">
                 <div className="flex text-2xl font-bold text-white p-9 mb-6 justify-center items-center grow-1 w-full border border-white rounded-xl">

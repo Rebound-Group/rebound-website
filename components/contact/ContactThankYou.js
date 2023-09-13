@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
-import clsx from 'clsx';
+import { Dialog } from "@headlessui/react";
 import { render } from 'storyblok-rich-text-react-renderer';
 import { Icon } from '@iconify/react';
 

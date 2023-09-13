@@ -19,8 +19,6 @@ const Carousel = ({
 
   useWindowSize();
 
-//   console.log(range);
-
   const leftControlClass = `control left ${
     activeIndex === 0 ? "inactive" : ""
   }`;

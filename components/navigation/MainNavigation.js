@@ -9,7 +9,6 @@ const MainNavigation = ({ data }) => {
   let [showModal, setShowModal] = useState(false)
   let [isMobile, setIsMobile] = useState(false)
 
-    // console.log(data)
     const NavBackgroundColor = () => {
       if(data.background_color === "black") return "#000"
       if(data.background_color === "green") return "#255F36"

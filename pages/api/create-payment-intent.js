@@ -25,7 +25,6 @@ const buildLineItem = (item) => {
 
 // Securely calculate the order amount, including tax
 const calculateOrderAmount = (items, taxCalculation) => {
-  console.log("items", items[0].amount)
   // Replace this constant with a calculation of the order's amount
   // Calculate the order total with any exclusive taxes on the server to prevent
   // people from directly manipulating the amount on the client
@@ -39,16 +38,12 @@ export default async function handler(req, res) {
   const taxCalculation = await calculateTax(items, "aud");
   const amount = await calculateOrderAmount(items, taxCalculation);
 
-  console.log("+++++++++++++++++++++++++++");
-  console.log(items, customer, mode, amount);
-
   const newCustomer = await stripe.customers.create({
     email: customer.email,
     name: customer.name,
     ...(customer.abn && {tax_id_data: [{type: "au_abn", value:customer.abn}]}),
   });
-  console.log(newCustomer)
-
+  
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,

@@ -9,10 +9,8 @@ import {
 
 export default function Page({ story }) {
   story = useStoryblokState(story);
-  // console.log(story)
-  const nav = story.content.main_navigation[0] || null
 
-  // console.log(nav)
+  const nav = story.content.main_navigation[0] || null
   return (
     <div className={styles.container}>
       <Head>
@@ -21,10 +19,6 @@ export default function Page({ story }) {
       </Head>
 
       {nav && <MainNavigation data={nav} />}
-
-      {/* <header>
-        <h1>{story ? story.name : "My Site"}</h1>
-      </header> */}
 
       <StoryblokComponent blok={story.content} />
     </div>

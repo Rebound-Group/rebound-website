@@ -16,7 +16,6 @@ const ContactSideImageLayout = ({ blok }) => {
   const messageInputRef = useRef(null);
   const signupInputRef = useRef(null);
 
-  console.log(signupInputRef)
   function closeModal() {
     setShowModal(false);
   }
