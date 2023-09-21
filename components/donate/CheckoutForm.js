@@ -98,7 +98,7 @@ export default function CheckoutForm({name, email, signup}) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "/donate?payment_success=true",
+        return_url: "https://reboundgroup.org.au/donate?payment_success=true",
       },
     });
 
