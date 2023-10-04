@@ -91,10 +91,10 @@ const res = fetch('https://api.emailjs.com/api/v1.0/email/send', options)
         <section className="xs:p-4 md:p-8">{render(blok.title)}</section>
         <form className="xs:p-4 md:p-8 xs:w-full sm:max-w-[75%] md:max-w-full lg:max-w-[75%]">
     <div className="mb-6">
-      <label ref={firstNameInputRef} className="block text-gray-700 mb-2" htmlFor="first-name">
+      <label className="block text-gray-700 mb-2" htmlFor="first-name">
         First Name
       </label>
-      <input className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" />
+      <input ref={firstNameInputRef} className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" />
     </div>
     <div className="mb-6">
       <label className="block text-gray-700 mb-2" htmlFor="last-name">
@@ -130,14 +130,14 @@ const res = fetch('https://api.emailjs.com/api/v1.0/email/send', options)
       <label className="block text-gray-700 mb-2" htmlFor="message">
         Message
       </label>
-      <textarea  ref={messageInputRef} rows="4" className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text" />
+      <textarea ref={messageInputRef} rows="4" className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" />
     </div>
 
     <p classNameName="uppercase font-bold">WANT TO RECEIVE UPDATES ON THE REBOUND PROJECT ?
 </p>
 <div className="mb-6">
     <label className=" block text-gray-500">
-      <input  ref={signupInputRef} className="mr-2 leading-tight border-melon" type="checkbox" />
+      <input ref={signupInputRef} className="mr-2 leading-tight border-melon" type="checkbox" />
       <span className="text-sm">
         Yes (You can unsubscribe at any time.)
       </span>
