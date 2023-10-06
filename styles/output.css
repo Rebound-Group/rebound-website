@@ -1566,6 +1566,11 @@ b {
     padding-right: 2rem;
   }
 
+  .md\:mx-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .md\:py-\[110px\] {
     padding-top: 110px;
     padding-bottom: 110px;
