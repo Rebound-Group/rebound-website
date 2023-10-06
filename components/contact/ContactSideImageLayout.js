@@ -133,7 +133,7 @@ const res = fetch('https://api.emailjs.com/api/v1.0/email/send', options)
       <textarea ref={messageInputRef} rows="4" className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" />
     </div>
 
-    <p classNameName="uppercase font-bold">WANT TO RECEIVE UPDATES ON THE REBOUND PROJECT ?
+    <p className="font-bold">Want to receive updates on the Rebound Project?
 </p>
 <div className="mb-6">
     <label className=" block text-gray-500">

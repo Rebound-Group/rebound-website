@@ -26,7 +26,7 @@ const Footer = ({ blok }) => {
             <img src={blok.CharityImage.filename} className="h-max w-max"/>
         </div>
     </div>
-    <p className="mx-12 mt-2 mb-0 pt-4 pb-6 border-t border-black">{blok.Copyright}</p>
+    <p className="mx-4 md:mx-12 mt-2 mb-0 pt-4 pb-6 border-t border-black">{blok.Copyright}</p>
     </div>
   );
 };
