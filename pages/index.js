@@ -20,7 +20,6 @@ export default function Home({ story }) {
   useEffect(() => {
     if (!sessionStorage.getItem("hasSeenWelcome")) {
       setShowWelcome(true)
-      sessionStorage.setItem("hasSeenWelcome", true);
       document.body.style.overflow = 'hidden';
     } else {
       setShowWelcome(false)
@@ -30,6 +29,7 @@ export default function Home({ story }) {
 
   useEffect(() => {
     document.body.style.overflow = showWelcome ? 'hidden' : 'unset'
+    sessionStorage.setItem("hasSeenWelcome", !showWelcome);
   }, [showWelcome])
 
   if(showWelcome) {
