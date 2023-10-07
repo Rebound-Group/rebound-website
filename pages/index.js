@@ -15,22 +15,20 @@ export default function Home({ story }) {
   const nav = story.content.main_navigation[0]
   const welcomeScreen = story.content.welcome_screen[0]
 
-  const [showWelcome, setShowWelcome] = useState(true)
+  const [showWelcome, setShowWelcome] = useState(false)
+  
   useEffect(() => {
     if (!sessionStorage.getItem("hasSeenWelcome")) {
       setShowWelcome(true)
       sessionStorage.setItem("hasSeenWelcome", true);
     } else {
       setShowWelcome(false)
+      document.body.style.overflow = 'unset';
     }
   },[])
 
   useEffect(() => {
-    if(showWelcome){
-    document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = showWelcome ? 'hidden' : 'unset'
   }, [showWelcome])
 
   if(showWelcome) {
