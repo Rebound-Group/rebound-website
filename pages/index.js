@@ -21,6 +21,7 @@ export default function Home({ story }) {
     if (!sessionStorage.getItem("hasSeenWelcome")) {
       setShowWelcome(true)
       sessionStorage.setItem("hasSeenWelcome", true);
+      document.body.style.overflow = 'hidden';
     } else {
       setShowWelcome(false)
       document.body.style.overflow = 'unset';
