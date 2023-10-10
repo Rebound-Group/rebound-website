@@ -12,6 +12,7 @@ import {
 
 export default function Home({ story }) {
   story = useStoryblokState(story);
+
   const nav = story.content.main_navigation[0];
   const welcomeScreen = story.content.welcome_screen[0];
 

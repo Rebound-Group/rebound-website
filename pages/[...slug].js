@@ -10,7 +10,7 @@ import {
 export default function Page({ story }) {
   story = useStoryblokState(story);
 
-  const nav = story.content.main_navigation[0] || null
+  const nav = story.content.main_navigation[0] || null;
   return (
     <div className={styles.container}>
       <Head>
@@ -30,11 +30,12 @@ export async function getStaticProps({ params }) {
 
   let sbParams = {
     version: "published", // or 'draft'
-    cv: new Date().getTime()
+    cv: new Date().getTime(),
   };
 
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  debugger;
 
   return {
     props: {
@@ -56,8 +57,8 @@ export async function getStaticPaths() {
 
     const slug = data.links[linkKey].slug;
     let splittedSlug = slug.split("/");
-    if(splittedSlug.length > 1){
-      return
+    if (splittedSlug.length > 1) {
+      return;
     }
 
     paths.push({ params: { slug: splittedSlug } });
