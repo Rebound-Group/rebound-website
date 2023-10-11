@@ -328,12 +328,8 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
       {clientSecret ? (
         <Elements options={options} stripe={stripePromise}>
           <CheckoutForm
-            name={
-              nameInputRef.current.value || businessNameInputRef.current.value
-            }
-            email={
-              emailInputRef.current.value || businessEmailInputRef.current.value
-            }
+            name={nameVal || businessNameVal || "Name not set"}
+            email={emailVal || businessEmailVal || "Email not set"}
             signup={signupInputRef.current.checked}
           />
         </Elements>
