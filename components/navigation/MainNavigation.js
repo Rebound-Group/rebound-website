@@ -24,10 +24,8 @@ const MainNavigation = ({ data }) => {
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth < 720);
-      console.log(isMobile, "isMobile");
     }
     setIsMobile(window.innerWidth < 720);
-    console.log(isMobile, "isMobil?e");
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
