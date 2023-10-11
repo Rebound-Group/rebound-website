@@ -56,32 +56,27 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
     setShowOther(true);
   };
 
-  function onNameChange(e) {
+  const onNameChange = (e) => {
     setNameVal(e.target.value);
-  }
-  function onEmailChange(e) {
+  };
+  const onEmailChange = (e) => {
     setEmailVal(e.target.value);
-  }
-  function onBusinessNameChange(e) {
+  };
+  const onBusinessNameChange = (e) => {
     setBusinessNameVal(e.target.value);
-  }
-  function onBusinessEmailChange(e) {
+  };
+  const onBusinessEmailChange = (e) => {
     setBusinessEmailVal(e.target.value);
-  }
-  function onAbnChange(e) {
+  };
+  const onAbnChange = (e) => {
     setAbnVal(e.target.value);
-  }
+  };
 
-  function ValidateEmail(input) {
+  const ValidateEmail = (value) => {
     const validRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-    if (input.value.match(validRegex)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+    return value.match(validRegex);
+  };
 
   useEffect(() => {
     const localIsValid = () => {
@@ -309,7 +304,6 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
             ref={signupInputRef}
             className="mr-2 leading-tight border-melon"
             type="checkbox"
-            checked
           />
           <span className="text-sm">
             Receive updates on the Rebound Project? (Unsubscribe any time)
