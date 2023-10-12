@@ -142,7 +142,10 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => setClientSecret(data.clientSecret))
+        .then((data) => {
+          console.log(data);
+          setClientSecret(data.clientSecret);
+        })
         .then(() => {
           setIsCreatingIntent(false);
         });
@@ -344,7 +347,7 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
         </div>
       ) : isValid ? (
         <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
-          <p>Please select payment type</p>
+          <p>Please choose a payment method</p>
         </div>
       ) : (
         <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
