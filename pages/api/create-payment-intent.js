@@ -41,9 +41,11 @@ export default async function handler(req, res) {
   const newCustomer = await stripe.customers.create({
     email: customer.email,
     name: customer.name,
-    ...(customer.abn && {tax_id_data: [{type: "au_abn", value:customer.abn}]}),
+    ...(customer.abn && {
+      tax_id_data: [{ type: "au_abn", value: customer.abn }],
+    }),
   });
-  
+
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,
@@ -53,9 +55,7 @@ export default async function handler(req, res) {
     // automatic_payment_methods: {
     //   enabled: true,
     // },
-    payment_method_types: [
-      "card"
-    ],
+    payment_method_types: ["card"],
     metadata: {
       tax_calculation: taxCalculation.id,
     },
@@ -69,8 +69,8 @@ export default async function handler(req, res) {
   const handlePaymentIntentSucceeded = async (paymentIntent) => {
     // Create a Tax Transaction for the successful payment
     stripe.tax.transactions.createFromCalculation({
-      calculation: paymentIntent.metadata['tax_calculation'],
-      reference: 'myOrder_123', // Replace with a unique reference from your checkout/order system
+      calculation: paymentIntent.metadata["tax_calculation"],
+      reference: `donation_${amount}AUD_${new Date().getTime()}`, // Ideally use with a unique reference from your checkout/order system
     });
   };
-};
+}

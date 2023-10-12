@@ -15,6 +15,7 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [subscription, setSubscription] = useState(false);
   const [amount, setAmount] = useState(20);
+  const [isCreatingIntent, setIsCreatingIntent] = useState(false);
 
   // const [message, setMessage] = useState(null);
   // const [isLoading, setIsLoading] = useState(false);
@@ -131,6 +132,7 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
 
     // Create PaymentIntent as soon as the page loads
     if (isValid) {
+      setIsCreatingIntent(true);
       fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -140,7 +142,10 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => setClientSecret(data.clientSecret));
+        .then((data) => setClientSecret(data.clientSecret))
+        .then(() => {
+          setIsCreatingIntent(false);
+        });
     }
   };
 
@@ -333,6 +338,10 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
             signup={signupInputRef.current.checked}
           />
         </Elements>
+      ) : isCreatingIntent ? (
+        <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
+          <p>Please wait...</p>
+        </div>
       ) : (
         !isValid && (
           <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
