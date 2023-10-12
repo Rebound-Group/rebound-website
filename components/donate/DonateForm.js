@@ -342,16 +342,18 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
         <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
           <p>Please wait...</p>
         </div>
+      ) : isValid ? (
+        <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
+          <p>Please select payment type</p>
+        </div>
       ) : (
-        !isValid && (
-          <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
-            {donationType === "Individual" ? (
-              <p>Please fill in your Individual details</p>
-            ) : (
-              <p>Please fill in your Business details</p>
-            )}
-          </div>
-        )
+        <div className="p-8 h-[90px] w-full bg-gray-light rounded-xl shadow-xl">
+          {donationType === "Individual" ? (
+            <p>Please fill in your Individual details</p>
+          ) : (
+            <p>Please fill in your Business details</p>
+          )}
+        </div>
       )}
       <div>
         <div className="mt-12 text-xs">{render(disclaimerTwo)}</div>
