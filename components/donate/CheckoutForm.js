@@ -3,21 +3,21 @@ import {
   PaymentElement,
   LinkAuthenticationElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
 
-export default function CheckoutForm({name, email, signup}) {
+export default function CheckoutForm({ name, email, signup }) {
   const stripe = useStripe();
   const elements = useElements();
 
-//   const [email, setEmail] = useState('');
+  //   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [subscription, setSubscription] = useState(false)
-  const [amount, setAmount] = useState(0)
-  const [donationType, setDonationType] = useState("")
-  const [showOther, setShowOther] = useState(false)
-  const otherAmountInputRef = useRef(null)
+  const [subscription, setSubscription] = useState(false);
+  const [amount, setAmount] = useState(0);
+  const [donationType, setDonationType] = useState("");
+  const [showOther, setShowOther] = useState(false);
+  const otherAmountInputRef = useRef(null);
 
   useEffect(() => {
     if (!stripe) {
@@ -44,46 +44,46 @@ export default function CheckoutForm({name, email, signup}) {
           setMessage("Your payment was not successful, please try again.");
           break;
         default:
-        //   setMessage("Something went wrong.");
+          //   setMessage("Something went wrong.");
           break;
       }
     });
   }, [stripe]);
 
   const handleSubscription = (isSubscription) => {
-    setSubscription(isSubscription)
-  }
+    setSubscription(isSubscription);
+  };
 
   const handleDonationType = (type) => {
-    setDonationType(type)
-  }
+    setDonationType(type);
+  };
 
   const handleSetPrice = (amount) => {
-    setAmount(amount)
-    setShowOther(false)
-  }
+    setAmount(amount);
+    setShowOther(false);
+  };
 
   const handleSetOtherPrice = () => {
-    setAmount(0)
-    setShowOther(true)
-  }
+    setAmount(0);
+    setShowOther(true);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(signup){
-        await fetch('/api/subscribe-user', {
-            body: JSON.stringify({
-              email: email,
-              first_name: name,
-            }),
-    
-            headers: {
-              'Content-Type': 'application/json',
-            },
-    
-            method: 'POST',
-        });
+    if (signup) {
+      await fetch("/api/subscribe-user", {
+        body: JSON.stringify({
+          email: email,
+          first_name: name,
+        }),
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        method: "POST",
+      });
     }
 
     if (!stripe || !elements) {
@@ -122,22 +122,27 @@ export default function CheckoutForm({name, email, signup}) {
 
   return (
     <>
-    <form id="payment-form" onSubmit={handleSubmit}>    
-    <div className="p-8 bg-gray-light rounded-xl shadow-xl">
-      {/* <LinkAuthenticationElement
+      <form id="payment-form" onSubmit={handleSubmit}>
+        <div className="p-8 bg-gray-light rounded-xl shadow-xl">
+          {/* <LinkAuthenticationElement
         id="link-authentication-element"
         onChange={(e) => setEmail(e.target.value)}
       /> */}
-      <PaymentElement id="payment-element" options={paymentElementOptions} />
-      </div>
-      <button disabled={isLoading || !stripe || !elements} id="submit" className="mt-6 bg-melon rounded-full py-2 px-8 focus:outline-none focus:shadow-outline">
-        <span id="button-text">
-          {isLoading ? "Processing" : "Donate"}
-        </span>
-      </button>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
-    </form>
+          <PaymentElement
+            id="payment-element"
+            options={paymentElementOptions}
+          />
+        </div>
+        <button
+          disabled={isLoading || !stripe || !elements}
+          id="submit"
+          className="mt-6 bg-melon rounded-full py-2 px-8 focus:outline-none focus:shadow-outline"
+        >
+          <span id="button-text">{isLoading ? "Processing" : "Donate"}</span>
+        </button>
+        {/* Show any error or success messages */}
+        {message && <div id="payment-message">{message}</div>}
+      </form>
     </>
   );
 }
