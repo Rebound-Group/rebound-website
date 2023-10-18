@@ -46,7 +46,7 @@ const MainNavigation = ({ data }) => {
                 <img
                   src={data.logo.filename}
                   className="h-fit w-fit"
-                  style={{ maxHeight: "38px" }}
+                  style={{ maxWidth: "158px", maxHeight: "38px" }}
                 />
               </a>
             </div>
