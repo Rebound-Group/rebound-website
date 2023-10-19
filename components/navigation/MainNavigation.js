@@ -133,7 +133,7 @@ const MainNavigation = ({ data }) => {
         <img
           src={data.logo.filename}
           className="h-fit w-fit"
-          style={{ maxHeight: "42px" }}
+          style={{ maxWidth: "175px", maxHeight: "42px" }}
         />
       </a>
       <div className="flex justify-end items-center">
