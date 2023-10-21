@@ -21,7 +21,7 @@ const HomeContentWithCTA = ({ blok }) => {
         <div className="mb-8 flex xs:flex-col md:flex-row justify-center items-center">
           {blok.ctas.map((item, i) => (
             <a
-              className="rounded-full py-4 px-4 md:px-8 m-4 text-white"
+              className="w-full md:w-auto rounded-full py-4 px-4 md:px-8 m-4 text-white"
               key={i}
               href={item.url.url}
               style={{ background: backgroundColor(item.color) }}
