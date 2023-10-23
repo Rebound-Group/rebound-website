@@ -8,7 +8,7 @@ const StatsCarousel = ({ blok }) => {
     return (
       <div className="wrapper mx-4 md:mx-12 w-full flex flex-col justify-center items-center ">
         <div className="flex text-2xl font-bold text-white p-4 md:p-9 mb-6 justify-center items-center grow-1 w-full border border-white rounded-xl">
-          "{render(slide.content)}"
+          &ldquo;{render(slide.content)}&rdquo;
         </div>
         <p className="flex text-white justify-center items-center w-full mb-0">
           - {slide.author}
