@@ -12,8 +12,8 @@ import MainNavigation from "../components/navigation/MainNavigation";
 import Footer from "../components/Footer";
 import OurPartners from "../components/OurPartners";
 import HomeHero from "../components/home/HomeHero";
-import HomeTwoColumn from "../components/home/HomeTwoColumn"
-import HomeContentWithCTA from "../components/home/HomeContentWithCTA"
+import HomeTwoColumn from "../components/home/HomeTwoColumn";
+import HomeContentWithCTA from "../components/home/HomeContentWithCTA";
 import HomeImageGrid from "../components/home/HomeImageGrid";
 import HomeExpandableGrid from "../components/home/HomeExpandableGrid";
 import OurGoalHero from "../components/our-goal/OurGoalHero";
@@ -30,6 +30,7 @@ import PrivacyPolicy from "../components/compliance/PrivacyPolicy";
 import TermsOfService from "../components/compliance/TermsOfService";
 import ContactThankYou from "../components/contact/ContactThankYou";
 import TeamMember from "../components/our-team/TeamMember";
+import OurTeamGrid from "../components/our-team/OurTeamGrid";
 
 const components = {
   feature: Feature,
@@ -60,7 +61,8 @@ const components = {
   privacy_policy: PrivacyPolicy,
   terms_of_service: TermsOfService,
   contact_thank_you: ContactThankYou,
-  team_member: TeamMember
+  team_member: TeamMember,
+  our_team_grid: OurTeamGrid,
 };
 
 storyblokInit({
