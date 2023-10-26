@@ -6,15 +6,14 @@ const HomeImageGrid = ({ blok }) => {
       {blok.image_grid_items.map((item, i) => (
         <div
           key={i}
-          className="flex-1 m-0 flex flex-col justify-end shadow-lg shadow-gray-950"
+          className="flex-1 m-0 flex flex-col justify-end shadow-lg shadow-gray-950 homeImgGrid"
           style={{
             backgroundImage: `url(${item.image.filename})`,
-            height: "400px",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
         >
-          <p className="text-white font-serif xs:text-[3.5rem] sm:text-6xl md:text-6xl lg:text-4xl xl:text-6xl p-4">
+          <p className="text-white font-serif xs:text-4xl md:text-6xl p-4">
             {render(item.text)}
           </p>
         </div>

@@ -1275,7 +1275,47 @@ h1 {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 3.5rem;
+    font-size: calc(3.5rem * 0.8);
+  }
+
+  .text-2xl {
+    font-size: calc(1.5rem * 0.8);
+    line-height: calc(2rem * 0.8);
+  }
+
+  .text-3xl {
+    font-size: calc(1.875rem * 0.8);
+    line-height: calc(2.25rem * 0.8);
+  }
+
+  .text-4xl {
+    font-size: calc(2.25rem * 0.8);
+    line-height: calc(2.5rem * 0.8);
+  }
+
+  .text-5xl {
+    font-size: calc(3rem * 0.8);
+    line-height: calc(1 * 0.8);
+  }
+
+  .text-6xl {
+    font-size: calc(3.75rem * 0.8);
+    line-height: calc(1 * 0.8);
+  }
+
+  .text-sm {
+    font-size: calc(0.875rem * 0.8);
+    line-height: calc(1.25rem * 0.8);
+  }
+
+  .text-xl {
+    font-size: calc(1.25rem * 0.8);
+    line-height: calc(1.75rem * 0.8);
+  }
+
+  .text-xs {
+    font-size: calc(0.75rem * 0.8);
+    line-height: calc(1rem * 0.8);
   }
 }
 
@@ -1304,6 +1344,25 @@ h6 {
 }
 
 @media (max-width: 768px) {
+  h2 {
+    line-height: calc(1.15 * 0.8);
+    font-size: calc(3rem * 0.8);
+    font-weight: 700;
+    font-family: inherit;
+  }
+
+  h3 {
+    line-height: calc(1.15 * 0.8);
+    font-size: calc(2rem * 0.8);
+    font-weight: 700;
+  }
+
+  h4 {
+    line-height: calc(1.15 * 0.8);
+    font-size: calc(1.2rem * 0.8);
+    font-weight: 700;
+  }
+
   h6 {
     font-size: 1.2rem;
   }
@@ -1352,6 +1411,15 @@ strong {
 
 .PolicyContent p {
   margin-bottom: 1rem;
+}
+
+.homeImgGrid {
+  height: 400px;
+  background-position: center;
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
 }
 
 .active-button {
