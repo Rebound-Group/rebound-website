@@ -35,7 +35,10 @@ const MainNavigation = ({ data }) => {
       <Menu>
         {({ open, close }) => (
           <>
-            <div className="fixed bg-dark-green w-full flex items-center justify-center p-2">
+            <div
+              className="fixed bg-dark-green w-full flex items-center justify-center p-2"
+              style={{ zIndex: 9999 }}
+            >
               <Menu.Button
                 className="absolute text-white  text-xl mr-8 w-fit"
                 style={{ left: "12px" }}
