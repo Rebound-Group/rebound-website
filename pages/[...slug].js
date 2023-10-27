@@ -6,12 +6,12 @@ import {
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
+import Script from "next/script";
 
 export default function Page({ story }) {
   story = useStoryblokState(story);
 
-  debugger;
-
+  // debugger;
 
   const nav = story.content.main_navigation[0] || null;
   return (
@@ -38,7 +38,7 @@ export async function getStaticProps({ params }) {
 
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  debugger;
+  // debugger;
 
   return {
     props: {

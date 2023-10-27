@@ -13,9 +13,9 @@ const HomeImageGrid = ({ blok }) => {
             backgroundSize: "cover",
           }}
         >
-          <p className="text-white font-serif xs:text-4xl md:text-6xl p-4">
+          <div className="text-white font-serif xs:text-4xl md:text-6xl p-4">
             {render(item.text)}
-          </p>
+          </div>
         </div>
       ))}
     </section>

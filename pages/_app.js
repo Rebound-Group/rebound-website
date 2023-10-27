@@ -31,6 +31,8 @@ import TermsOfService from "../components/compliance/TermsOfService";
 import ContactThankYou from "../components/contact/ContactThankYou";
 import TeamMember from "../components/our-team/TeamMember";
 import OurTeamGrid from "../components/our-team/OurTeamGrid";
+import Script from "next/script";
+import { useEffect, useState } from "react";
 
 const components = {
   feature: Feature,
@@ -65,17 +67,38 @@ const components = {
   our_team_grid: OurTeamGrid,
 };
 
-storyblokInit({
+const storyBlokConfig = {
   accessToken: "qInT9TYEj3U2ABmVFX7kSAtt",
   use: [apiPlugin],
   components,
   apiOptions: {
     region: "us",
   },
-});
+};
+
+storyblokInit(storyBlokConfig);
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (isReady) {
+      //debugger;
+      const { StoryblokBridge, location } = window;
+      const storyblokInstance = new StoryblokBridge(storyBlokConfig);
+    }
+  }, [isReady]);
+
+  return (
+    <>
+      <Script
+        src="//app.storyblok.com/f/storyblok-v2-latest.js"
+        onReady={() => setIsReady(true)}
+        strategy="beforeInteractive"
+      />
+      <Component {...pageProps} />;
+    </>
+  );
 }
 
 export default MyApp;
