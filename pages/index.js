@@ -14,7 +14,8 @@ export default function Home({ story }) {
   story = useStoryblokState(story);
 
   const nav = story.content.main_navigation[0];
-  const welcomeScreen = story.content.welcome_screen[0];
+  const welcomeScreenEditable = story.content._editable;
+  const welcomeScreenBlok = story.content.welcome_screen[0];
 
   const [showWelcome, setShowWelcome] = useState(false);
 
@@ -36,25 +37,31 @@ export default function Home({ story }) {
 
   if (showWelcome) {
     return (
-      <div
-        className={styles.WelcomeScreen}
-        style={{ backgroundImage: `url(${welcomeScreen.images[0].filename})` }}
-      >
-        <img
-          className="max-h-[125px]"
-          height="125px"
-          src={welcomeScreen.logo.filename}
-        />
-        <div className="text-center text-3xl mt-4 lg:mt-8  font-serif">
-          {render(welcomeScreen.title)}
-        </div>
-        <button
-          className="border border-melon mt-4 lg:mt-8  rounded-full py-4 px-8 text-melon"
-          onClick={() => setShowWelcome(false)}
+      <>
+        {render(welcomeScreenEditable)}
+        <div
+          className={styles.WelcomeScreen}
+          style={{
+            backgroundImage: `url(${welcomeScreenBlok.images[0].filename})`,
+          }}
         >
-          {welcomeScreen.cta_text}
-        </button>
-      </div>
+          <img
+            className="max-h-[125px]"
+            height="125px"
+            src={welcomeScreenBlok.logo.filename}
+          />
+          {render(welcomeScreenBlok._editable)}
+          <div className="text-center text-3xl mt-4 lg:mt-8 font-serif">
+            {render(welcomeScreenBlok.title)}
+          </div>
+          <button
+            className="border border-melon mt-4 lg:mt-8 rounded-full py-4 px-8 text-melon"
+            onClick={() => setShowWelcome(false)}
+          >
+            {welcomeScreenBlok.cta_text}
+          </button>
+        </div>
+      </>
     );
   }
 
@@ -66,32 +73,33 @@ export default function Home({ story }) {
       </Head>
 
       {nav && <MainNavigation data={nav} />}
-      {/* <header>
-        <h1>{story ? story.name : "My Site"}</h1>
-      </header> */}
 
       {showWelcome && (
-        <div
-          className={styles.WelcomeScreen}
-          style={{
-            backgroundImage: `url(${welcomeScreen.images[0].filename})`,
-          }}
-        >
-          <img
-            className="max-h-[125px]"
-            height="125px"
-            src={welcomeScreen.logo.filename}
-          />
-          <div className="text-center mt-4 lg:mt-8 text-3xl font-serif">
-            {render(welcomeScreen.title)}
-          </div>
-          <button
-            className="border border-melon rounded-full mt-4 lg:mt-8 py-4 px-8 text-melon"
-            onClick={() => setShowWelcome(false)}
+        <>
+          {render(welcomeScreenEditable)}
+          <div
+            className={styles.WelcomeScreen}
+            style={{
+              backgroundImage: `url(${welcomeScreenBlok.images[0].filename})`,
+            }}
           >
-            {welcomeScreen.cta_text}
-          </button>
-        </div>
+            <img
+              className="max-h-[125px]"
+              height="125px"
+              src={welcomeScreenBlok.logo.filename}
+            />
+            {render(welcomeScreenBlok._editable)}
+            <div className="text-center mt-4 lg:mt-8 text-3xl font-serif">
+              {render(welcomeScreenBlok.title)}
+            </div>
+            <button
+              className="border border-melon rounded-full mt-4 lg:mt-8 py-4 px-8 text-melon"
+              onClick={() => setShowWelcome(false)}
+            >
+              {welcomeScreenBlok.cta_text}
+            </button>
+          </div>
+        </>
       )}
 
       <StoryblokComponent blok={story.content} />
@@ -100,15 +108,15 @@ export default function Home({ story }) {
 }
 
 export async function getStaticProps() {
-  let slug = "home";
+  const slug = "home";
 
-  let sbParams = {
-    version: "published", // or 'draft'
+  const sbParams = {
+    version: "draft/published", //  'published || draft || draft/published'
     cv: new Date().getTime(),
   };
 
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
 
   return {
     props: {

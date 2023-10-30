@@ -6,7 +6,6 @@ import {
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
-import Script from "next/script";
 
 export default function Page({ story }) {
   story = useStoryblokState(story);
@@ -32,7 +31,7 @@ export async function getStaticProps({ params }) {
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
-    version: "published", // or 'draft'
+    version: "draft/published", //  'published || draft || draft/published'
     cv: new Date().getTime(),
   };
 

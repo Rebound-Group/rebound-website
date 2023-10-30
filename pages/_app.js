@@ -83,7 +83,6 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if (isReady) {
-      //debugger;
       const { StoryblokBridge, location } = window;
       const storyblokInstance = new StoryblokBridge(storyBlokConfig);
     }
