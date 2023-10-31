@@ -4,6 +4,7 @@ import styles from "./MainNavigation.module.css";
 import { Menu, Transition } from "@headlessui/react";
 import { Icon } from "@iconify/react";
 import SubscribeModal from "../SubscribeModal";
+import { colorMap } from "../../utils/utils";
 
 const MainNavigation = ({ data }) => {
   const [showModal, setShowModal] = useState(false);
