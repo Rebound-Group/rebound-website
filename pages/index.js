@@ -45,7 +45,7 @@ export default function Home({ story }) {
             backgroundImage: `url(${welcomeScreenBlok.images[0].filename})`,
           }}
         >
-          <div className="absolute mt-8 mh-auto text-xl w-full top-0 text-center font-serif opacity-75">
+          <div className="absolute mt-8 mh-auto text-xl w-full top-0 text-center font-sans opacity-75">
             Expertise. Commitment. Impact.
           </div>
           <img
