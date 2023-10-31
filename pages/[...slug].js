@@ -31,7 +31,7 @@ export async function getStaticProps({ params }) {
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
-    version: "draft", // : "published", //  'published || draft || draft/published'
+    version: process.env.LOCAL === "true" ? "draft" : "published", //  'published || draft || draft/published'
     cv: new Date().getTime(),
   };
 

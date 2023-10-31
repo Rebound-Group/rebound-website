@@ -14,9 +14,6 @@ const OurGoalProjectCarousel = ({ blok }) => {
                 <OurGoalProjectCarouselSlide slide={slide} key={i}/>
             ))}
         </div>
-        {/*<div className="mt-6 p-4 lg:p-8 text-xl font-bold text-center flex justify-center items-center">
-            <button className="p-4 bg-blue text-white xs:w-full md:max-w-[600px] shadow-xl flex items-center justify-center "><span className="flex-1">Support the project<span className="text-melon">.</span></span><Icon className="text-melon right" icon="octicon:chevron-right-12" /></button>
-        </div>*/}
     </div>
   );
 };

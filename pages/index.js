@@ -16,7 +16,6 @@ export default function Home({ story }) {
   debugger;
 
   const nav = story.content.main_navigation[0];
-  // const welcomeScreenEditable = story.content._editable;
   const welcomeScreenBlok = story.content.welcome_screen[0];
 
   const [showWelcome, setShowWelcome] = useState(false);
@@ -36,7 +35,6 @@ export default function Home({ story }) {
   if (showWelcome) {
     return (
       <>
-        {/* {render(welcomeScreenEditable)} */}
         <div
           className={styles.WelcomeScreen}
           style={{
@@ -51,7 +49,6 @@ export default function Home({ story }) {
             height="125px"
             src={welcomeScreenBlok.logo.filename}
           />
-          {/* {render(welcomeScreenBlok._editable)} */}
           <div className="text-center text-3xl mt-4 lg:mt-8 font-serif">
             {render(welcomeScreenBlok.title)}
           </div>
@@ -77,7 +74,6 @@ export default function Home({ story }) {
 
       {showWelcome && (
         <>
-          {/* {render(welcomeScreenEditable)} */}
           <div
             className={styles.WelcomeScreen}
             style={{
@@ -89,7 +85,6 @@ export default function Home({ story }) {
               height="125px"
               src={welcomeScreenBlok.logo.filename}
             />
-            {/* {render(welcomeScreenBlok._editable)} */}
             <div className="text-center mt-4 lg:mt-8 text-3xl font-serif">
               {render(welcomeScreenBlok.title)}
             </div>
@@ -111,29 +106,10 @@ export default function Home({ story }) {
 export async function getStaticProps() {
   const slug = "home";
 
-  // Check if _storyblok_release parameter is present in the URL
-  // const queryString = window.location.search;
-  // const urlParams = new URLSearchParams(queryString);
-  // const releaseId = urlParams.get("_storyblok_release") || null;
-
-  // Call pingEditor to see if the user is in the editor
-
-  // if (localStorage.getItem('isInEditor').isInEditor()) {
-  //   //  load the draft version
-  // } else {
-  //   // load the published version
-  // }
-
   const sbParams = {
-    version: "draft", // "published", //  'published || draft || draft/published'
+    version: process.env.LOCAL === "true" ? "draft" : "published", //  'published || draft || draft/published'
     cv: new Date().getTime(),
   };
-
-  // // Fetch the home story with the given releaseId
-  // const response = await Storyblok.get("cdn/stories/home", {
-  //   version: "draft",
-  //   from_release: releaseId,
-  // });
 
   const storyblokApi = getStoryblokApi();
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
