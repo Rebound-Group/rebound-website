@@ -4,7 +4,7 @@ const HomeImageGrid = ({ blok }) => {
   return (
     <section className="grid shadow-lg shadow-gray-950 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
       {blok.image_grid_items.map((item, i) => (
-        <>
+        <div key={`griditem_${i}`}>
           {render(item._editable)}
           <div
             key={i}
@@ -19,7 +19,7 @@ const HomeImageGrid = ({ blok }) => {
               {render(item.text)}
             </div>
           </div>
-        </>
+        </div>
       ))}
     </section>
   );

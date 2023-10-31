@@ -1,12 +1,9 @@
 import { render } from "storyblok-rich-text-react-renderer";
+import { colorMap } from "../../utils/utils";
 
 const OurGoalOurReactionSlide = ({ slide }) => {
   const borderColor = () => {
-    if (slide.bottom_border_color === "melon") return "#E58A80";
-    if (slide.bottom_border_color === "blue") return "#004AAD";
-    if (slide.bottom_border_color === "green") return "#255F36";
-    if (slide.bottom_border_color === "yellow") return "#FFDE59";
-    return "#fff";
+    return colorMap[slide.bottom_border_color] || "#fff";
   };
   return (
     <div

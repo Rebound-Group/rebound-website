@@ -10,10 +10,7 @@ const MainNavigation = ({ data }) => {
   const [isMobile, setIsMobile] = useState(null);
 
   const NavBackgroundColor = () => {
-    if (data.background_color === "black") return "#000";
-    if (data.background_color === "green") return "#255F36";
-    if (data.background_color === "opaque") return "rgba(0,0,0,0.4)";
-    return "none";
+    return colorMap[data.background_color] || "none";
   };
 
   const CTABackgroundColor = (color) => {

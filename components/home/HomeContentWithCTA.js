@@ -1,15 +1,8 @@
 import { render } from "storyblok-rich-text-react-renderer";
-
+import { colorMap } from "../../utils/utils.js";
 const HomeContentWithCTA = ({ blok }) => {
   const backgroundColor = (color) => {
-    const colorMap = {
-      melon: "#E58A80",
-      blue: "#004AAD",
-      green: "#255F36",
-      yellow: "#FFDE59",
-      black: "#000",
-    };
-    return colorMap[color] || "";
+    return colorMap[color] || "none";
   };
 
   return (
