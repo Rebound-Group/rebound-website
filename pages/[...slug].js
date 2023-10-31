@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
 
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  // debugger;
+  debugger;
 
   return {
     props: {
@@ -59,9 +59,7 @@ export async function getStaticPaths() {
 
     const slug = data.links[linkKey].slug;
     let splittedSlug = slug.split("/");
-    if (splittedSlug.length > 1) {
-      return;
-    }
+    if (splittedSlug.length > 1) return;
 
     paths.push({ params: { slug: splittedSlug } });
   });

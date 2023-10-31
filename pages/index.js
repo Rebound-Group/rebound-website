@@ -45,6 +45,9 @@ export default function Home({ story }) {
             backgroundImage: `url(${welcomeScreenBlok.images[0].filename})`,
           }}
         >
+          <div className="absolute mt-8 mh-auto text-xl w-full top-0 text-center font-serif opacity-75">
+            Expertise. Commitment. Impact.
+          </div>
           <img
             className="max-h-[125px]"
             height="125px"
@@ -117,6 +120,7 @@ export async function getStaticProps() {
 
   const storyblokApi = getStoryblokApi();
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  debugger;
 
   return {
     props: {
