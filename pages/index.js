@@ -16,7 +16,7 @@ export default function Home({ story }) {
   debugger;
 
   const nav = story.content.main_navigation[0];
-  const welcomeScreenEditable = story.content._editable;
+  // const welcomeScreenEditable = story.content._editable;
   const welcomeScreenBlok = story.content.welcome_screen[0];
 
   const [showWelcome, setShowWelcome] = useState(false);
@@ -51,7 +51,7 @@ export default function Home({ story }) {
             height="125px"
             src={welcomeScreenBlok.logo.filename}
           />
-          {render(welcomeScreenBlok._editable)}
+          {/* {render(welcomeScreenBlok._editable)} */}
           <div className="text-center text-3xl mt-4 lg:mt-8 font-serif">
             {render(welcomeScreenBlok.title)}
           </div>
@@ -89,7 +89,7 @@ export default function Home({ story }) {
               height="125px"
               src={welcomeScreenBlok.logo.filename}
             />
-            {render(welcomeScreenBlok._editable)}
+            {/* {render(welcomeScreenBlok._editable)} */}
             <div className="text-center mt-4 lg:mt-8 text-3xl font-serif">
               {render(welcomeScreenBlok.title)}
             </div>

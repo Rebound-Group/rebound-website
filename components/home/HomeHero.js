@@ -7,7 +7,7 @@ const HomeHero = ({ blok }) => {
       className={styles.HomeHero}
       style={{ backgroundImage: `url(${blok.background_image.filename})` }}
     >
-      {render(blok._editable)}
+      {/* {render(blok._editable)} */}
       <div className="flex justify-center items-center text-center">
         {render(blok.text)}
       </div>

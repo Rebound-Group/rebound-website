@@ -4,7 +4,7 @@ import Expandable from "../Expandable";
 const HomeTwoColumn = ({ blok }) => {
   return (
     <section className="lg:p-8 flex">
-      {render(blok._editable)}
+      {/* {render(blok._editable)} */}
       <div
         className="xs:hidden lg:block md:w-[75%] max-w-[400px] lg:w-[100%] flex-1"
         style={{
