@@ -13,6 +13,8 @@ import {
 export default function Home({ story }) {
   story = useStoryblokState(story);
 
+  debugger;
+
   const nav = story.content.main_navigation[0];
   const welcomeScreenEditable = story.content._editable;
   const welcomeScreenBlok = story.content.welcome_screen[0];
@@ -28,11 +30,7 @@ export default function Home({ story }) {
   }, []);
 
   useEffect(() => {
-    if (showWelcome) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = showWelcome ? "hidden" : "unset";
   }, [showWelcome]);
 
   if (showWelcome) {
@@ -113,10 +111,29 @@ export default function Home({ story }) {
 export async function getStaticProps() {
   const slug = "home";
 
+  // Check if _storyblok_release parameter is present in the URL
+  // const queryString = window.location.search;
+  // const urlParams = new URLSearchParams(queryString);
+  // const releaseId = urlParams.get("_storyblok_release") || null;
+
+  // Call pingEditor to see if the user is in the editor
+
+  // if (localStorage.getItem('isInEditor').isInEditor()) {
+  //   //  load the draft version
+  // } else {
+  //   // load the published version
+  // }
+
   const sbParams = {
-    version: "draft/published", //  'published || draft || draft/published'
+    version: "draft", // "published", //  'published || draft || draft/published'
     cv: new Date().getTime(),
   };
+
+  // // Fetch the home story with the given releaseId
+  // const response = await Storyblok.get("cdn/stories/home", {
+  //   version: "draft",
+  //   from_release: releaseId,
+  // });
 
   const storyblokApi = getStoryblokApi();
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);

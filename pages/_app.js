@@ -85,6 +85,17 @@ function MyApp({ Component, pageProps }) {
     if (isReady) {
       const { StoryblokBridge, location } = window;
       const storyblokInstance = new StoryblokBridge(storyBlokConfig);
+
+      // Call pingEditor to see if the user is in the editor
+      storyblokInstance.pingEditor(() => {
+        if (storyblokInstance.isInEditor()) {
+          //  load the draft version
+          //window.localStorage.setItem("isInEditor", true);
+        } else {
+          // load the published version
+          //window.localStorage.setItem("isInEditor", false);
+        }
+      });
     }
   }, [isReady]);
 
