@@ -13,7 +13,7 @@ import {
 export default function Home({ story }) {
   story = useStoryblokState(story);
 
-  debugger;
+  //debugger;
 
   const nav = story.content.main_navigation[0];
   const welcomeScreenBlok = story.content.welcome_screen[0];
@@ -113,7 +113,7 @@ export async function getStaticProps() {
 
   const storyblokApi = getStoryblokApi();
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  debugger;
+  //debugger;
 
   return {
     props: {
