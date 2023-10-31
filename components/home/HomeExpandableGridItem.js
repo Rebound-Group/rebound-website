@@ -2,6 +2,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { colorMap } from "../../utils/utils";
+import styles from "./HomeExpandableGridItem.module.css";
 
 const HomeExpandableGridItem = ({ data }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -10,17 +11,15 @@ const HomeExpandableGridItem = ({ data }) => {
   };
   return (
     <div
-      className="flex-1 bg-white h-fit p-4 shadow-lg shadow-gray-950 rounded flex flex-col justify-between min-h-[435px]"
+      className="flex-1 bg-white h-fit p-4 shadow-lg shadow-gray-950 rounded flex flex-col justify-between lg:min-h-[435px]"
       style={{ borderBottomLeftRadius: "3rem" }}
     >
       <div className="flex flex-col">
         <div
-          className=""
+          className={styles.HomeExpGridItem}
           style={{
+            borderTopRightRadius: "36px",
             backgroundImage: `url(${data.image.filename})`,
-            height: "400px",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
             borderBottom: `6px solid ${borderColor()}`,
           }}
         >
@@ -30,7 +29,7 @@ const HomeExpandableGridItem = ({ data }) => {
               fontSize: "55px",
               color: "#fff",
               textShadow:
-                " 0px 3.3821539878845215px 3.3821539878845215px rgba(0, 0, 0, 0.50)",
+                "0px 3.3821539878845215px 3.3821539878845215px rgba(0, 0, 0, 0.50)",
             }}
           >
             {data.number}
@@ -39,7 +38,7 @@ const HomeExpandableGridItem = ({ data }) => {
         <div className="font-serif font-bold text-4xl py-4">
           {render(data.title)}
         </div>
-        <div className="font-bold min-h-[65px]">
+        <div className="font-bold min-h-[95px]">
           {render(data.overview_text)}
         </div>
         {isExpanded && render(data.content)}

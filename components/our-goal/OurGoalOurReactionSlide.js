@@ -7,15 +7,16 @@ const OurGoalOurReactionSlide = ({ slide }) => {
   };
   return (
     <div
-      className="p-4 md:p-8 text-center mb-8 m-2 md:m-4 flex flex-col justify-between items-between border border-gray-light shadow-xl"
+      className="p-4 md:p-8 text-center mb-8 m-2 md:m-4 flex flex-col justify-between items-between border border-gray-light shadow-xl reaction-slide"
       style={{
         flex: "1",
-        height: "380px",
         borderBottom: `6px solid ${borderColor()}`,
       }}
     >
       <div className="text-3xl text-center">{render(slide.title)}</div>
-      <div className="text-xl">{render(slide.text)}</div>
+      <div className="text-xl absolute top-1/2 px-4 -mt-5 left-0 w-full full-p-width-inner">
+        {render(slide.text)}
+      </div>
       <div className="">{render(slide.year)}</div>
     </div>
   );

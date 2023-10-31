@@ -36,7 +36,7 @@ export default function Home({ story }) {
   if (showWelcome) {
     return (
       <>
-        {render(welcomeScreenEditable)}
+        {/* {render(welcomeScreenEditable)} */}
         <div
           className={styles.WelcomeScreen}
           style={{
@@ -77,7 +77,7 @@ export default function Home({ story }) {
 
       {showWelcome && (
         <>
-          {render(welcomeScreenEditable)}
+          {/* {render(welcomeScreenEditable)} */}
           <div
             className={styles.WelcomeScreen}
             style={{

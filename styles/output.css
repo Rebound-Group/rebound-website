@@ -753,6 +753,18 @@ video {
   min-height: 65px;
 }
 
+.min-h-\[75px\] {
+  min-height: 75px;
+}
+
+.min-h-\[85px\] {
+  min-height: 85px;
+}
+
+.min-h-\[95px\] {
+  min-height: 95px;
+}
+
 .w-\[100px\] {
   width: 100px;
 }
@@ -1434,6 +1446,17 @@ strong {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.full-p-width-inner p {
+  width: 100%;
+}
+
+.reaction-slide {
+  height: 380px;
+  @media (max-width: 768px) {
+    height: 200px;
+  }
 }
 
 @media (min-width: 1px) {
