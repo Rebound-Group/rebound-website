@@ -27,13 +27,11 @@ export default function Page({ story }) {
   );
 }
 
-export async function getStaticProps(context) {
-  const isProd = context;
-  console.log("site context", context);
-  const slug = context.params.slug ? context.params.slug.join("/") : "home";
+export async function getStaticProps({ params, preview }) {
+  const slug = params.slug ? params.slug.join("/") : "home";
 
   const sbParams = {
-    version: process.env.LOCAL === "true" ? "draft" : "published", //  'published || draft || draft/published'
+    version: preview ? "draft" : "published", //  'published || draft || draft/published'
     cv: new Date().getTime(),
   };
 
