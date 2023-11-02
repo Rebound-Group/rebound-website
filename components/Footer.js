@@ -1,5 +1,3 @@
-import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import { renderRichText } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
 const Footer = ({ blok }) => {

@@ -1,4 +1,3 @@
-import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 import { useEffect, useState } from "react";
 import DonateForm from "./DonateForm";

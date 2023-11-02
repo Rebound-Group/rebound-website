@@ -11,7 +11,6 @@ const HomeContentWithCTA = ({ blok }) => {
       style={{ borderTop: `20px solid rgb(250, 250, 250)` }}
     >
       <div className="flex flex-col">
-        {/* {render(blok._editable)} */}
         <div className="text-3xl mb-4">{render(blok.title)}</div>
         <div className="mb-8">{render(blok.content)}</div>
         <div className="mb-8 flex xs:flex-col md:flex-row justify-center items-center">
