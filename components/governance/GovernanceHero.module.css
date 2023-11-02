@@ -1,19 +1,24 @@
 .GovernanceHero {
-    background-size: cover;
-    background-repeat: no-repeat;
-    max-height: 400px;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: white;
-    padding-left: 3rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 400px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  padding-left: 3rem;
+
+  @media (max-width: 768px) {
+    max-height: 250px;
+    min-height: 250px;
+  }
 }
 
 @media (max-width: 768px) {
-    .GovernanceHero {
-        max-height: 270px;
-        min-height: 260px;
-        padding-left: 1rem;
-    }
+  .GovernanceHero {
+    max-height: 270px;
+    min-height: 260px;
+    padding-left: 1rem;
+  }
 }

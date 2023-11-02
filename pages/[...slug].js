@@ -10,6 +10,8 @@ import {
 export default function Page({ story }) {
   story = useStoryblokState(story);
 
+  //debugger;
+
   const nav = story.content.main_navigation[0] || null;
   return (
     <div className={styles.container}>
@@ -25,17 +27,17 @@ export default function Page({ story }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  let slug = params.slug ? params.slug.join("/") : "home";
+export async function getStaticProps({ params, preview }) {
+  const slug = params.slug ? params.slug.join("/") : "home";
 
-  let sbParams = {
-    version: "published", // or 'draft'
+  const sbParams = {
+    version: preview ? "draft" : "published", //  'published || draft || draft/published'
     cv: new Date().getTime(),
   };
 
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  debugger;
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  //debugger;
 
   return {
     props: {
@@ -48,18 +50,16 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get("cdn/links/");
-  let paths = [];
+  const { data } = await storyblokApi.get("cdn/links/");
+  const paths = [];
   Object.keys(data.links).forEach((linkKey) => {
     if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") {
       return;
     }
 
     const slug = data.links[linkKey].slug;
-    let splittedSlug = slug.split("/");
-    if (splittedSlug.length > 1) {
-      return;
-    }
+    const splittedSlug = slug.split("/");
+    if (splittedSlug.length > 1) return;
 
     paths.push({ params: { slug: splittedSlug } });
   });
