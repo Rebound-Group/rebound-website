@@ -3,11 +3,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media (max-width: 768px) {
+  @media (max-width: 620px) {
     height: 250px;
-  }
-  @media (max-width: 600px) {
-    height: 160px;
-    background-position: 50% 50%;
+    background-position-y: -80px;
   }
 }

@@ -1436,7 +1436,7 @@ strong {
 
 .homeImgGridWrapper:nth-of-type(3) .homeImgGrid {
   @media (max-width: 650px) {
-    background-position-y: -100px;
+    background-position-y: -15px;
   }
 }
 
@@ -1461,7 +1461,7 @@ strong {
 .reaction-slide {
   height: 380px;
   @media (max-width: 768px) {
-    height: 200px;
+    height: 300px;
   }
 }
 
