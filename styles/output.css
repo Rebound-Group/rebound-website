@@ -753,6 +753,18 @@ video {
   min-height: 65px;
 }
 
+.min-h-\[75px\] {
+  min-height: 75px;
+}
+
+.min-h-\[85px\] {
+  min-height: 85px;
+}
+
+.min-h-\[95px\] {
+  min-height: 95px;
+}
+
 .w-\[100px\] {
   width: 100px;
 }
@@ -1275,7 +1287,47 @@ h1 {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 3.5rem;
+    font-size: calc(3.5rem * 0.8);
+  }
+
+  .text-2xl {
+    font-size: calc(1.5rem * 0.8);
+    line-height: calc(2rem * 0.8);
+  }
+
+  .text-3xl {
+    font-size: calc(1.875rem * 0.8);
+    line-height: calc(2.25rem * 0.8);
+  }
+
+  .text-4xl {
+    font-size: calc(2.25rem * 0.8);
+    line-height: calc(2.5rem * 0.8);
+  }
+
+  .text-5xl {
+    font-size: calc(3rem * 0.8);
+    line-height: calc(1 * 0.8);
+  }
+
+  .text-6xl {
+    font-size: calc(3.75rem * 0.8);
+    line-height: calc(1 * 0.8);
+  }
+
+  .text-sm {
+    font-size: calc(0.875rem * 0.8);
+    line-height: calc(1.25rem * 0.8);
+  }
+
+  .text-xl {
+    font-size: calc(1.25rem * 0.8);
+    line-height: calc(1.75rem * 0.8);
+  }
+
+  .text-xs {
+    font-size: calc(0.75rem * 0.8);
+    line-height: calc(1rem * 0.8);
   }
 }
 
@@ -1304,6 +1356,25 @@ h6 {
 }
 
 @media (max-width: 768px) {
+  h2 {
+    line-height: calc(1.15 * 0.8);
+    font-size: calc(3rem * 0.8);
+    font-weight: 700;
+    font-family: inherit;
+  }
+
+  h3 {
+    line-height: calc(1.15 * 0.8);
+    font-size: calc(2rem * 0.8);
+    font-weight: 700;
+  }
+
+  h4 {
+    line-height: calc(1.15 * 0.8);
+    font-size: calc(1.2rem * 0.8);
+    font-weight: 700;
+  }
+
   h6 {
     font-size: 1.2rem;
   }
@@ -1354,6 +1425,21 @@ strong {
   margin-bottom: 1rem;
 }
 
+.homeImgGrid {
+  height: 400px;
+  background-position: center;
+
+  @media (max-width: 650px) {
+    height: 250px;
+  }
+}
+
+.homeImgGridWrapper:nth-of-type(3) .homeImgGrid {
+  @media (max-width: 650px) {
+    background-position-y: -100px;
+  }
+}
+
 .active-button {
   border: 1px solid #f68d7f;
   background: #f68d7f;
@@ -1366,6 +1452,17 @@ strong {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.full-p-width-inner p {
+  width: 100%;
+}
+
+.reaction-slide {
+  height: 380px;
+  @media (max-width: 768px) {
+    height: 200px;
+  }
 }
 
 @media (min-width: 1px) {
@@ -1566,6 +1663,10 @@ strong {
 
   .md\:max-w-full {
     max-width: 100%;
+  }
+
+  .md\:w-auto {
+    width: auto;
   }
 
   .md\:max-w-\[400px\] {

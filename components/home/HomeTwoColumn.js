@@ -3,7 +3,7 @@ import Expandable from "../Expandable";
 
 const HomeTwoColumn = ({ blok }) => {
   return (
-    <section className="lg:p-8 flex ">
+    <section className="lg:p-8 flex">
       <div
         className="xs:hidden lg:block md:w-[75%] max-w-[400px] lg:w-[100%] flex-1"
         style={{
@@ -20,11 +20,7 @@ const HomeTwoColumn = ({ blok }) => {
         <div className="xs:pl-2 lg:pl-8 lg:mb-0 text-xl">
           {render(blok.text)}
         </div>
-        <div
-          style={{
-            transition: `all 1s ease`,
-          }}
-        >
+        <div style={{ transition: "all 1s ease" }}>
           {blok.expandable.map((item, i) => (
             <Expandable data={item} key={i} />
           ))}

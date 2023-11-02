@@ -12,8 +12,8 @@ import MainNavigation from "../components/navigation/MainNavigation";
 import Footer from "../components/Footer";
 import OurPartners from "../components/OurPartners";
 import HomeHero from "../components/home/HomeHero";
-import HomeTwoColumn from "../components/home/HomeTwoColumn"
-import HomeContentWithCTA from "../components/home/HomeContentWithCTA"
+import HomeTwoColumn from "../components/home/HomeTwoColumn";
+import HomeContentWithCTA from "../components/home/HomeContentWithCTA";
 import HomeImageGrid from "../components/home/HomeImageGrid";
 import HomeExpandableGrid from "../components/home/HomeExpandableGrid";
 import OurGoalHero from "../components/our-goal/OurGoalHero";
@@ -29,6 +29,10 @@ import GovernanceOverview from "../components/governance/GovernanceOverview";
 import PrivacyPolicy from "../components/compliance/PrivacyPolicy";
 import TermsOfService from "../components/compliance/TermsOfService";
 import ContactThankYou from "../components/contact/ContactThankYou";
+import TeamMember from "../components/our-team/TeamMember";
+import OurTeamGrid from "../components/our-team/OurTeamGrid";
+import Script from "next/script";
+import { useEffect, useState } from "react";
 
 const components = {
   feature: Feature,
@@ -59,19 +63,41 @@ const components = {
   privacy_policy: PrivacyPolicy,
   terms_of_service: TermsOfService,
   contact_thank_you: ContactThankYou,
+  team_member: TeamMember,
+  our_team_grid: OurTeamGrid,
 };
 
-storyblokInit({
+const storyBlokConfig = {
   accessToken: "qInT9TYEj3U2ABmVFX7kSAtt",
   use: [apiPlugin],
   components,
   apiOptions: {
     region: "us",
   },
-});
+};
+
+storyblokInit(storyBlokConfig);
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (isReady) {
+      const { StoryblokBridge, location } = window;
+      const storyblokInstance = new StoryblokBridge(storyBlokConfig);
+    }
+  }, [isReady]);
+
+  return (
+    <>
+      <Script
+        src="//app.storyblok.com/f/storyblok-v2-latest.js"
+        onReady={() => setIsReady(true)}
+        strategy="beforeInteractive"
+      />
+      <Component {...pageProps} />;
+    </>
+  );
 }
 
 export default MyApp;

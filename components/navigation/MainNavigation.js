@@ -4,16 +4,14 @@ import styles from "./MainNavigation.module.css";
 import { Menu, Transition } from "@headlessui/react";
 import { Icon } from "@iconify/react";
 import SubscribeModal from "../SubscribeModal";
+import { colorMap } from "../../utils/utils";
 
 const MainNavigation = ({ data }) => {
   const [showModal, setShowModal] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
   const NavBackgroundColor = () => {
-    if (data.background_color === "black") return "#000";
-    if (data.background_color === "green") return "#255F36";
-    if (data.background_color === "opaque") return "rgba(0,0,0,0.4)";
-    return "none";
+    return colorMap[data.background_color] || "none";
   };
 
   const CTABackgroundColor = (color) => {
@@ -23,19 +21,22 @@ const MainNavigation = ({ data }) => {
 
   useEffect(() => {
     function handleResize() {
-      setIsMobile(window.innerWidth < 720);
+      setIsMobile(window.innerWidth < 768);
     }
-    setIsMobile(window.innerWidth < 720);
+    setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (isMobile) {
+  if (isMobile === true) {
     return (
       <Menu>
         {({ open, close }) => (
           <>
-            <div className="bg-dark-green w-full flex items-center justify-center p-2">
+            <div
+              className="fixed bg-dark-green w-full flex items-center justify-center p-2"
+              style={{ zIndex: 100 }}
+            >
               <Menu.Button
                 className="absolute text-white  text-xl mr-8 w-fit"
                 style={{ left: "12px" }}
@@ -61,10 +62,10 @@ const MainNavigation = ({ data }) => {
             >
               <Menu.Items
                 static
-                className="bg-white border border-gray-200 divide-y divide-gray-100 ashadow-lg outline-none"
+                className="bg-white border border-gray-200 divide-y divide-gray-100 shadow-lg outline-none"
                 style={{
                   position: "absolute",
-                  top: "-56px",
+                  top: "-1px",
                   left: "0",
                   width: "70%",
                   bottom: "0",
@@ -78,7 +79,7 @@ const MainNavigation = ({ data }) => {
                     <img
                       src={data.logo.filename}
                       className="h-fit w-fit"
-                      style={{ maxHeight: "38px" }}
+                      style={{ maxWidth: "158px", maxHeight: "38px" }}
                     />
                   </a>
                   {/* {({ close }) => ( */}
@@ -124,58 +125,59 @@ const MainNavigation = ({ data }) => {
     );
   }
 
-  return (
-    <div
-      className={styles.MainNavigation}
-      style={{ backgroundColor: NavBackgroundColor() }}
-    >
-      <a href="/">
-        <img
-          src={data.logo.filename}
-          className="h-fit w-fit"
-          style={{ maxWidth: "175px", maxHeight: "42px" }}
-        />
-      </a>
-      <div className="flex justify-end items-center">
-        {data.nav_link &&
-          data.nav_link.map((item, i) => (
-            <a className="text-white mr-4" href={item.url.url} key={i * 222}>
-              {item.display_text}
-            </a>
-          ))}
-        {data.nav_cta &&
-          data.nav_cta.map((item, i) => (
-            <a
+  if (isMobile === false)
+    return (
+      <div
+        className={styles.MainNavigation}
+        style={{ backgroundColor: NavBackgroundColor() }}
+      >
+        <a href="/">
+          <img
+            src={data.logo.filename}
+            className="h-fit w-fit"
+            style={{ maxWidth: "175px", maxHeight: "42px" }}
+          />
+        </a>
+        <div className="flex justify-end items-center">
+          {data.nav_link &&
+            data.nav_link.map((item, i) => (
+              <a className="text-white mr-4" href={item.url.url} key={i * 222}>
+                {item.display_text}
+              </a>
+            ))}
+          {data.nav_cta &&
+            data.nav_cta.map((item, i) => (
+              <a
+                className="text-white rounded-full py-2 px-4 mr-4"
+                style={CTABackgroundColor(item.color)}
+                href={item.url}
+                key={i * 111}
+              >
+                {item.display_text}
+              </a>
+            ))}
+          {data.show_subscribe_cta && (
+            <button
               className="text-white rounded-full py-2 px-4 mr-4"
-              style={CTABackgroundColor(item.color)}
-              href={item.url}
-              key={i * 111}
+              style={CTABackgroundColor(data.subscribe_cta_color)}
+              onClick={() => setShowModal(true)}
             >
-              {item.display_text}
-            </a>
-          ))}
-        {data.show_subscribe_cta && (
-          <button
-            className="text-white rounded-full py-2 px-4 mr-4"
-            style={CTABackgroundColor(data.subscribe_cta_color)}
-            onClick={() => setShowModal(true)}
-          >
-            {data.subscribe_cta_text}
-          </button>
-        )}
+              {data.subscribe_cta_text}
+            </button>
+          )}
+        </div>
+        <SubscribeModal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          image={data.subscribe_modal_image}
+          title={data.subscribe_modal_title}
+          text={data.subscribe_modal_text}
+          thankyouTitle={data.subscribe_modal_thank_you_title}
+          thankyouText={data.subscribe_modal_thank_you_text}
+          logo={data.subscribe_modal_thank_you_logo}
+        />
       </div>
-      <SubscribeModal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        image={data.subscribe_modal_image}
-        title={data.subscribe_modal_title}
-        text={data.subscribe_modal_text}
-        thankyouTitle={data.subscribe_modal_thank_you_title}
-        thankyouText={data.subscribe_modal_thank_you_text}
-        logo={data.subscribe_modal_thank_you_logo}
-      />
-    </div>
-  );
+    );
 };
 
 export default MainNavigation;
