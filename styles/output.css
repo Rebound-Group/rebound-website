@@ -1438,6 +1438,9 @@ strong {
   @media (max-width: 650px) {
     background-position-y: -15px;
   }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    background-position-y: -15px;
+  }
 }
 
 .active-button {
