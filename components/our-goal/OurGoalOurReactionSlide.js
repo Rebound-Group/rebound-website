@@ -14,7 +14,7 @@ const OurGoalOurReactionSlide = ({ slide }) => {
       }}
     >
       <div className="text-3xl text-center">{render(slide.title)}</div>
-      <div className="text-xl absolute top-1/2 px-6 -mt-10 left-0 w-full full-p-width-inner">
+      <div className="text-xl absolute top-1/2 px-6 -mt-16 left-0 w-full full-p-width-inner">
         {render(slide.text)}
       </div>
       <div className="">{render(slide.year)}</div>
