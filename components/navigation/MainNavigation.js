@@ -59,6 +59,7 @@ const MainNavigation = ({ data }) => {
               leave="transition ease-in duration-75"
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
+              style={{ position: "fixed" }}
             >
               <Menu.Items
                 static
@@ -67,7 +68,7 @@ const MainNavigation = ({ data }) => {
                   position: "absolute",
                   top: "-1px",
                   left: "0",
-                  width: "70%",
+                  width: "250px",
                   bottom: "0",
                   height: "100vh",
                   background: "white",

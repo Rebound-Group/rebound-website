@@ -95,7 +95,7 @@ function MyApp({ Component, pageProps }) {
         onReady={() => setIsReady(true)}
         strategy="beforeInteractive"
       />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

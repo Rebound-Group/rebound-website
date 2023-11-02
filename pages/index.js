@@ -107,7 +107,7 @@ export async function getStaticProps({ preview }) {
   const slug = "home";
 
   const sbParams = {
-    version: preview ? "draft" : "published", //  'published || draft || draft/published'
+    version: preview ? "draft" : "published",
     cv: new Date().getTime(),
   };
 
