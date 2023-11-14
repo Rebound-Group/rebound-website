@@ -1434,14 +1434,20 @@ strong {
   }
 }
 
-/* .homeImgGridWrapper:nth-of-type(3) .homeImgGrid {
-  @media (max-width: 650px) {
-    background-position-y: -15px;
+.homeImgGridWrapper:nth-of-type(3) .homeImgGrid {
+  @media (max-width: 540px) {
+    background-position-y: bottom;
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    background-position-y: -15px;
+  @media (min-width: 541px) and (max-width: 600px) {
+    background-position-y: -460px;
   }
-} */
+  @media (min-width: 601px) and (max-width: 640px) {
+    background-position-y: -580px;
+  }
+  @media (min-width: 641px) {
+    background-position-y: bottom;
+  }
+}
 
 .active-button {
   border: 1px solid #f68d7f;
