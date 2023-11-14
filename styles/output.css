@@ -1445,7 +1445,7 @@ strong {
     background-position-y: -580px;
   }
   @media (min-width: 641px) {
-    background-position-y: center;
+    background-position-y: bottom;
   }
 }
 
