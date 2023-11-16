@@ -68,6 +68,10 @@ export default function Home({ story }) {
       <Head>
         <title>Rebound Global</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="google-site-verification"
+          content="TVT_Q4O962FfeXNbvm_Cp93bPI8xP5R_0L4SfEXE1gI"
+        />
       </Head>
 
       {nav && <MainNavigation data={nav} />}
