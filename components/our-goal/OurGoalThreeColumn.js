@@ -15,7 +15,7 @@ const OurGoalThreeColumn = ({ blok }) => {
             className="flex md:mr-4 mb-4 flex-1 rounded-2xl shadow-xl"
             key={i}
           >
-            <div className="three-column-count p-4 rounded-2xl xs:text-5xl md:text-6xl font-bold bg-dark-green text-white flex _justify-center items-center shrink-0 xs:w-[100px] md:w-[130px]">
+            <div className="three-column-count p-4 rounded-2xl xs:text-5xl md:text-6xl font-bold bg-dark-green text-white flex xs:justify-center items-center shrink-0 xs:w-[100px] md:w-[130px]">
               {render(item.number)}{" "}
             </div>
             <div className="pr-4 pl-4 pt-2 pb-0 m-0 flex flex-col _justify-center items-center">

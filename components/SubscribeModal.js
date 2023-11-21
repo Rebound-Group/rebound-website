@@ -65,7 +65,7 @@ const SubscribeModal = ({
           style={{ background: "rgba(0, 0, 0, 0.86)" }}
           onClick={() => setShowModal(false)}
         />
-        <div className="flex bg-gray-light text-black xs:max-w-full sm:max-w-[80%]">
+        <div className="flex bg-gray-light text-black xs:max-w-full sm:max-w-[80%] md:w-1024">
           <div className="left-col">
             <img className="xs:hidden lg:block" src={image.filename} />
           </div>

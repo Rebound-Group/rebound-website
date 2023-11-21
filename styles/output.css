@@ -1674,6 +1674,11 @@ strong {
     max-width: 100%;
   }
 
+  .md\:w-1024 {
+    min-width: 80%;
+    max-width: 1024px;
+  }
+
   .md\:w-auto {
     width: auto;
   }
