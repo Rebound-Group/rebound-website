@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "./CheckoutForm";
+import { ValidateEmail } from "../../utils/utils";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -69,12 +70,6 @@ const DonateForm = ({ disclaimerOne, disclaimerTwo }) => {
   };
   const onAbnChange = (e) => {
     setAbnVal(e.target.value);
-  };
-
-  const ValidateEmail = (value) => {
-    const validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    return value.match(validRegex);
   };
 
   useEffect(() => {

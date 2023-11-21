@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 import ContactThankYou from "./ContactThankYou";
+import { ValidateEmail } from "../../utils/utils";
 
 const ContactSideImageLayout = ({ blok }) => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -87,37 +88,42 @@ const ContactSideImageLayout = ({ blok }) => {
         <img className="xs:hidden md:block" src={blok.image.filename} />
         <div className="flex flex-col xs:mt-12 md:mt-24 w-full">
           <section className="xs:p-4 md:p-8">{render(blok.title)}</section>
-          <form className="xs:p-4 md:p-8 xs:w-full sm:max-w-[75%] md:max-w-full lg:max-w-[75%]">
+          <form className="xs:p-4 md:p-8 xs:w-full sm:max-w-[75%] md:max-w-full lg:max-w-[50%]">
             <div className="mb-6">
               <label className="block text-gray-700 mb-2" htmlFor="first-name">
-                First Name
+                First name *
               </label>
               <input
                 ref={firstNameInputRef}
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="first-name"
+                placeholder="First name"
+                required
                 type="text"
               />
             </div>
             <div className="mb-6">
               <label className="block text-gray-700 mb-2" htmlFor="last-name">
-                Last Name
+                Last name
               </label>
               <input
                 ref={lastNameInputRef}
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="last-name"
+                placeholder="Last name"
                 type="text"
               />
             </div>
             <div className="mb-6">
               <label className="block text-gray-700 mb-2" htmlFor="email">
-                Email
+                Email *
               </label>
               <input
                 ref={emailInputRef}
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="email"
+                required
+                placeholder="Email"
                 type="email"
               />
             </div>
@@ -129,6 +135,7 @@ const ContactSideImageLayout = ({ blok }) => {
                 ref={roleInputRef}
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="role"
+                placeholder="Role"
                 type="text"
               />
             </div>
@@ -143,6 +150,7 @@ const ContactSideImageLayout = ({ blok }) => {
                 ref={organisationInputRef}
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="organisation"
+                placeholder="Organisation"
                 type="text"
               />
             </div>
@@ -154,6 +162,7 @@ const ContactSideImageLayout = ({ blok }) => {
                 ref={subjectInputRef}
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="subject"
+                placeholder="Subject"
                 type="text"
               />
             </div>
@@ -164,6 +173,7 @@ const ContactSideImageLayout = ({ blok }) => {
               <textarea
                 ref={messageInputRef}
                 rows="4"
+                placeholder="Message"
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="message"
               />
@@ -187,7 +197,20 @@ const ContactSideImageLayout = ({ blok }) => {
 
             <div className="mb-6">
               <button
-                className="border bg-melon text-white rounded-full py-2 px-8 focus:outline-none focus:shadow-outline"
+                className={`border bg-melon text-white rounded-full py-2 px-8 focus:outline-none focus:shadow-outline ${
+                  firstNameInputRef.current.value !== "" &&
+                  emailInputRef.current.value !== "" &&
+                  ValidateEmail(emailInputRef.current.value)
+                    ? "active-button"
+                    : "disabled-button"
+                }`}
+                disabled={
+                  !(
+                    firstNameInputRef.current.value !== "" &&
+                    emailInputRef.current.value !== "" &&
+                    ValidateEmail(emailInputRef.current.value)
+                  )
+                }
                 onClick={() => handleSubmit()}
                 type="button"
               >
