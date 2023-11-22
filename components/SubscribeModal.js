@@ -18,6 +18,17 @@ const SubscribeModal = ({
   const nameInputRef = useRef(null);
   const emailInputRef = useRef(null);
   const organisationInputRef = useRef(null);
+
+  const [formValid, setFormValid] = useState(false);
+
+  const onBlurEventHandler = () => {
+    setFormValid(
+      nameInputRef?.current?.value !== "" &&
+        emailInputRef?.current?.value !== "" &&
+        ValidateEmail(emailInputRef?.current?.value)
+    );
+  };
+
   function closeModal() {
     setShowModal(false);
   }
@@ -108,6 +119,7 @@ const SubscribeModal = ({
                       className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="first-name"
                       required
+                      onBlur={onBlurEventHandler}
                       placeholder="First name"
                       type="text"
                     />
@@ -121,6 +133,7 @@ const SubscribeModal = ({
                       className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="email"
                       required
+                      onBlur={onBlurEventHandler}
                       placeholder="Email"
                       type="email"
                     />
@@ -144,19 +157,9 @@ const SubscribeModal = ({
                   <div className="mb-4">
                     <button
                       className={`bg-melon text-white rounded-full py-2 px-8 focus:outline-none focus:shadow-outline ${
-                        nameInputRef.current.value !== "" &&
-                        emailInputRef.current.value !== "" &&
-                        ValidateEmail(emailInputRef.current.value)
-                          ? "active-button"
-                          : "disabled-button"
+                        formValid ? "active-button" : "disabled-button"
                       }`}
-                      disabled={
-                        !(
-                          nameInputRef.current.value !== "" &&
-                          emailInputRef.current.value !== "" &&
-                          ValidateEmail(emailInputRef.current.value)
-                        )
-                      }
+                      disabled={!formValid}
                       type="button"
                       onClick={() => handleSubmit()}
                     >

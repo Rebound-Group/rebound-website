@@ -20,6 +20,16 @@ const ContactSideImageLayout = ({ blok }) => {
     setShowModal(false);
   }
 
+  const [formValid, setFormValid] = useState(false);
+
+  const onBlurEventHandler = () => {
+    setFormValid(
+      firstNameInputRef?.current?.value !== "" &&
+        emailInputRef?.current?.value !== "" &&
+        ValidateEmail(emailInputRef?.current?.value)
+    );
+  };
+
   const thank_you_modal = blok.thank_you_modal[0];
 
   const handleSubmit = async () => {
@@ -88,7 +98,7 @@ const ContactSideImageLayout = ({ blok }) => {
         <img className="xs:hidden md:block" src={blok.image.filename} />
         <div className="flex flex-col xs:mt-12 md:mt-24 w-full">
           <section className="xs:p-4 md:p-8">{render(blok.title)}</section>
-          <form className="xs:p-4 md:p-8 xs:w-full sm:max-w-[75%] md:max-w-full lg:max-w-[50%]">
+          <form className="xs:p-4 md:p-8 xs:w-full sm:max-w-[75%] md:w-[50%] lg:w-[50%]">
             <div className="mb-6">
               <label className="block text-gray-700 mb-2" htmlFor="first-name">
                 First name *
@@ -99,6 +109,7 @@ const ContactSideImageLayout = ({ blok }) => {
                 id="first-name"
                 placeholder="First name"
                 required
+                onBlur={onBlurEventHandler}
                 type="text"
               />
             </div>
@@ -123,6 +134,7 @@ const ContactSideImageLayout = ({ blok }) => {
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="email"
                 required
+                onBlur={onBlurEventHandler}
                 placeholder="Email"
                 type="email"
               />
@@ -198,19 +210,9 @@ const ContactSideImageLayout = ({ blok }) => {
             <div className="mb-6">
               <button
                 className={`border bg-melon text-white rounded-full py-2 px-8 focus:outline-none focus:shadow-outline ${
-                  firstNameInputRef.current.value !== "" &&
-                  emailInputRef.current.value !== "" &&
-                  ValidateEmail(emailInputRef.current.value)
-                    ? "active-button"
-                    : "disabled-button"
+                  formValid ? "active-button" : "disabled-button"
                 }`}
-                disabled={
-                  !(
-                    firstNameInputRef.current.value !== "" &&
-                    emailInputRef.current.value !== "" &&
-                    ValidateEmail(emailInputRef.current.value)
-                  )
-                }
+                disabled={!formValid}
                 onClick={() => handleSubmit()}
                 type="button"
               >
