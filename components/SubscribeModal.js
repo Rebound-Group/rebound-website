@@ -1,9 +1,8 @@
 import { useState, useRef } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
-import clsx from "clsx";
+import { Dialog } from "@headlessui/react";
 import { render } from "storyblok-rich-text-react-renderer";
 import { Icon } from "@iconify/react";
+import { ValidateEmail } from "../utils/utils";
 
 const SubscribeModal = ({
   showModal,
@@ -19,6 +18,17 @@ const SubscribeModal = ({
   const nameInputRef = useRef(null);
   const emailInputRef = useRef(null);
   const organisationInputRef = useRef(null);
+
+  const [formValid, setFormValid] = useState(false);
+
+  const onBlurEventHandler = () => {
+    setFormValid(
+      nameInputRef?.current?.value !== "" &&
+        emailInputRef?.current?.value !== "" &&
+        ValidateEmail(emailInputRef?.current?.value)
+    );
+  };
+
   function closeModal() {
     setShowModal(false);
   }
@@ -102,23 +112,29 @@ const SubscribeModal = ({
                       className="block text-gray-700 mb-2"
                       htmlFor="first-name"
                     >
-                      First Name
+                      First name *
                     </label>
                     <input
                       ref={nameInputRef}
                       className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="first-name"
+                      required
+                      onBlur={onBlurEventHandler}
+                      placeholder="First name"
                       type="text"
                     />
                   </div>
                   <div className="mb-4">
                     <label className="block text-gray-700 mb-2" htmlFor="email">
-                      Email
+                      Email *
                     </label>
                     <input
                       ref={emailInputRef}
                       className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="email"
+                      required
+                      onBlur={onBlurEventHandler}
+                      placeholder="Email"
                       type="email"
                     />
                   </div>
@@ -133,13 +149,17 @@ const SubscribeModal = ({
                       ref={organisationInputRef}
                       className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="organisation"
+                      placeholder="Organisation"
                       type="text"
                     />
                   </div>
 
                   <div className="mb-4">
                     <button
-                      className=" bg-melon text-white rounded-full py-2 px-8 focus:outline-none focus:shadow-outline"
+                      className={`bg-melon text-white rounded-full py-2 px-8 focus:outline-none focus:shadow-outline ${
+                        formValid ? "active-button" : "disabled-button"
+                      }`}
+                      disabled={!formValid}
                       type="button"
                       onClick={() => handleSubmit()}
                     >

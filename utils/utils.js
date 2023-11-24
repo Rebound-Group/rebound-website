@@ -6,3 +6,9 @@ export const colorMap = {
   black: "#000",
   opaque: "rgba(0,0,0,0.4)",
 };
+
+export const ValidateEmail = (value) => {
+  const validRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  return value?.match(validRegex);
+};

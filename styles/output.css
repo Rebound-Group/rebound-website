@@ -1454,6 +1454,13 @@ strong {
   background: #f68d7f;
 }
 
+.disabled-button {
+  border: 1px solid #f68d7f;
+  background: #f68d7f;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .hover\:cursor-pointer:hover {
   cursor: pointer;
 }
