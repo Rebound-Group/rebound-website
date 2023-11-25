@@ -110,6 +110,8 @@ export default function Home({ story }) {
 export async function getStaticProps({ preview }) {
   const slug = "home";
 
+  preview = true;
+
   const sbParams = {
     version: preview ? "draft" : "published",
     cv: new Date().getTime(),
