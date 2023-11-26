@@ -10,6 +10,23 @@ import {
   StoryblokComponent,
 } from "@storyblok/react";
 
+import { Montserrat, Playfair_Display } from "next/font/google";
+
+const montSerrat = Montserrat({
+  subsets: ["latin"],
+  style: ["normal"],
+  display: "swap",
+  preload: "false",
+  variable: "--font-montserrat",
+});
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  style: ["normal"],
+  display: "swap",
+  preload: "false",
+  variable: "--font-playfair",
+});
+
 export default function Home({ story }) {
   story = useStoryblokState(story);
 
@@ -36,7 +53,7 @@ export default function Home({ story }) {
     return (
       <>
         <div
-          className={styles.WelcomeScreen}
+          className={{ ...montSerrat.className, ...styles.WelcomeScreen }}
           style={{
             backgroundImage: `url(${welcomeScreenBlok.images[0].filename})`,
           }}
@@ -109,6 +126,8 @@ export default function Home({ story }) {
 
 export async function getStaticProps({ preview }) {
   const slug = "home";
+
+  preview = true;
 
   const sbParams = {
     version: preview ? "draft" : "published",
