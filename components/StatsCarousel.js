@@ -6,7 +6,7 @@ import { useSpringCarousel } from "react-spring-carousel";
 const StatsCarousel = ({ blok }) => {
   const Slide = ({ slide }) => {
     return (
-      <div className="wrapper mx-4 md:mx-12 w-full flex flex-col justify-center items-center ">
+      <div className="wrapper mx-4 md:mx-12 w-full flex flex-col justify-center items-center">
         <div
           className="flex text-2xl font-bold text-white p-4 md:p-9 mb-6 justify-center items-center grow-1 w-full border border-white rounded-xl"
           style={{
@@ -54,7 +54,9 @@ const StatsCarousel = ({ blok }) => {
   return (
     <div
       className={styles.StatsCarousel}
-      style={{ backgroundImage: `url(${blok.background_image.filename})` }}
+      style={{
+        backgroundImage: `url(${blok.background_image.filename})`,
+      }}
     >
       <div className="xs:py-8 xs:px-4 md:px-8 md:py-[110px] max-w-[100%] flex justify-center items-center">
         {blok.stats_list.length > 1 && (
