@@ -1067,7 +1067,7 @@ video {
   padding-right: 2rem;
 }
 
-.md\:px-10 {
+.px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
@@ -1687,6 +1687,10 @@ strong {
   .md\:mt-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .md\:mb-12 {
+    margin-bottom: 3rem;
   }
 
   .md\:block {
