@@ -12,7 +12,9 @@ const HomeContentWithCTA = ({ blok }) => {
     >
       <div className="flex flex-col">
         <div className="text-3xl mb-4">{render(blok.title)}</div>
-        <div className="mb-8">{render(blok.content)}</div>
+        <div className="mb-8" style={{ margin: "0 auto", maxWidth: "1024px" }}>
+          {render(blok.content)}
+        </div>
         <div className="mb-8 flex xs:flex-col md:flex-row justify-center items-center">
           {blok.ctas.map((item, i) => (
             <a

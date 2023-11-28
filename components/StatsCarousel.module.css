@@ -1,8 +1,15 @@
 .StatsCarousel {
   background-size: cover;
   background-repeat: no-repeat;
-  display:flex;
-  justify-content:center; 
-  align-items:center;
-  overflow-x:hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+
+  @media (max-width: 767px) {
+    min-height: 320px;
+  }
+  @media (min-width: 768px) {
+    min-height: 500px;
+  }
 }
