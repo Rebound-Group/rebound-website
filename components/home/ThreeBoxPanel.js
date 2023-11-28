@@ -17,7 +17,7 @@ const ThreeBoxPanel = ({ blok }) => {
         >
           <div className="my-4 md:mb-12 md:mt-6 mx-6">{render(blok.Title)}</div>
           <div className="grid mx-12 md:mx-6 grid-cols-1 md:grid-cols-3 gap-6 mt-6 md:mt-12 mb-8 md:mb-2">
-            <div className="col-span-1 py-6 px-12 bg-three-box-panel flex flex-col">
+            <div className="col-span-1 py-6 px-10 bg-three-box-panel flex flex-col">
               <div className="text-grey font-bold text-4xl my-4 md:my-6">
                 {render(blok.BoxTitle1)}
                 <span className="text-melon">.</span>
