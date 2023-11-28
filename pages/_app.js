@@ -31,6 +31,7 @@ import TermsOfService from "../components/compliance/TermsOfService";
 import ContactThankYou from "../components/contact/ContactThankYou";
 import TeamMember from "../components/our-team/TeamMember";
 import OurTeamGrid from "../components/our-team/OurTeamGrid";
+import ThreeBoxPanel from "../components/home/ThreeBoxPanel";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
@@ -65,6 +66,7 @@ const components = {
   contact_thank_you: ContactThankYou,
   team_member: TeamMember,
   our_team_grid: OurTeamGrid,
+  three_box_panel: ThreeBoxPanel,
 };
 
 const storyBlokConfig = {

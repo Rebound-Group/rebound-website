@@ -94,9 +94,12 @@ const ContactSideImageLayout = ({ blok }) => {
 
   return (
     <>
-      <div className="flex _mt-12">
-        <img className="xs:hidden md:block" src={blok.image.filename} />
-        <div className="flex flex-col xs:mt-12 md:mt-24 w-full">
+      <div className="flex _mt-1HomeExpandableGrid2">
+        <div
+          className="xs:hidden md:block sectionSideImage"
+          style={{ backgroundImage: `url(${blok.image.filename})` }}
+        />
+        <div className="flex flex-col ml-4 xs:mt-12 md:mt-24 w-full">
           <section className="xs:p-4 md:p-8">{render(blok.title)}</section>
           <form className="xs:p-4 md:p-8 xs:w-full sm:max-w-[75%] md:w-[50%] lg:w-[50%]">
             <div className="mb-6">
