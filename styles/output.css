@@ -1628,6 +1628,15 @@ strong {
     padding: 2rem;
   }
 
+  .sm\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .sm\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   .sm\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -1686,9 +1695,20 @@ strong {
 
   .md\:mt-8 {
     margin-top: 2rem;
-    margin-bottom: 2rem;
+  }
+  .md\:mt-10 {
+    margin-top: 2.5rem;
+  }
+  .md\:mt-12 {
+    margin-top: 3rem;
   }
 
+  .md\:mb-8 {
+    margin-bottom: 2rem;
+  }
+  .md\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
   .md\:mb-12 {
     margin-bottom: 3rem;
   }

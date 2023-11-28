@@ -13,7 +13,7 @@ const HomeTwoColumn = ({ blok }) => {
           minHeight: "680px",
         }}
       ></div>
-      <div className="flex-1 flex flex-col xs:px-4 xs:py-4 lg:py-8">
+      <div className="flex-1 flex flex-col xs:px-4 xs:py-4 sm:py-8">
         <div className="xs:pl-2 lg:pl-8 font-serif text-4xl mb-4">
           {render(blok.title)}
         </div>
