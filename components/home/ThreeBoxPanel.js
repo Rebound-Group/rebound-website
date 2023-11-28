@@ -10,6 +10,8 @@ const ThreeBoxPanel = ({ blok }) => {
           backgroundImage: `url(${blok.Background.filename})`,
           backgroundSize: "cover",
           borderTop: "20px solid white",
+          borderLeft: "20px solid white",
+          borderRight: "20px solid white",
         }}
       >
         <div
