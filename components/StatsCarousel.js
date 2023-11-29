@@ -56,6 +56,7 @@ const StatsCarousel = ({ blok }) => {
       className={styles.StatsCarousel}
       style={{
         backgroundImage: `url(${blok.background_image.filename})`,
+        minHeight: "560px",
       }}
     >
       <div className="xs:py-8 xs:px-4 md:px-8 md:py-[110px] max-w-[100%] flex justify-center items-center">
