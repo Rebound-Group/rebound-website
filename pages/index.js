@@ -82,7 +82,7 @@ export default function Home({ story }) {
 
       {nav && <MainNavigation data={nav} />}
 
-      {showWelcome && (
+      {/* {showWelcome && (
         <>
           <div
             className={styles.WelcomeScreen}
@@ -106,7 +106,7 @@ export default function Home({ story }) {
             </button>
           </div>
         </>
-      )}
+      )} */}
 
       <StoryblokComponent blok={story.content} />
     </div>

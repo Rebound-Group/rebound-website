@@ -1628,6 +1628,12 @@ strong {
     padding: 2rem;
   }
 
+  a:hover,
+  button:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+  }
+
   .sm\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
