@@ -78,54 +78,6 @@ const StatsCarousel = ({ blok }) => {
           </button>
         )}
       </div>
-      {/* <button onClick={slideToPrevItem}>
-            <img src="/arrow_left.svg" />
-        </button> */}
-      {/* <div className="overflow-hidden flex">
-        <Carousel showThumbs={false} showStatus={false} showIndicators={false} dynamicHeight={true}  className=""
-        // renderArrowPrev={leftArrow} 
-        renderArrowPrev={(onClickHandler, hasPrev, label) =>
-            (
-                <button style ={{        position: 'absolute',
-                zIndex: 2,
-                top: 'calc(50% - 15px)',
-                width: 30,
-                height: 30,
-                cursor: 'pointer'}}> 
-                    <img src="/arrow_left.svg" onClick={onClickHandler} />
-                </button>
-            )
-        }
-        // renderArrowNext={rightArrow}
-        renderArrowNext={(onClickHandler, hasNext, label) =>
-            (
-                <button style ={{        position: 'absolute',
-                zIndex: 2,
-                top: 'calc(50% - 15px)',
-                width: 30,
-                height: 30,
-                cursor: 'pointer',
-                right: 0}} >
-                    <img src="/arrow_right.svg" onClick={onClickHandler} />
-                </button>
-            )
-        }
-        >
-        {blok.stats_list.map(slide => (
-          <div className="wrapper mx-12">
-          <div className="flex text-2xl font-bold text-white p-8 mb-4 justify-center items-center w-full border border-white rounded-xl">
-                  "{render(slide.content)}"
-          </div>
-          <p className="flex text-white justify-center items-center w-full ">
-              - {slide.author}
-          </p>
-      </div>
-        ))}
-      </Carousel>
-        </div> */}
-      {/* <button onClick={slideToNextItem}>
-        <img src="/arrow_right.svg" />
-        </button> */}
     </div>
   );
 };
