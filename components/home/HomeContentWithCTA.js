@@ -8,7 +8,7 @@ const HomeContentWithCTA = ({ blok }) => {
   return (
     <section
       className="p-6 md:p-12 flex flex-col text-center"
-      style={{ borderTop: `20px solid rgb(250, 250, 250)` }}
+      style={{ borderTop: `0 solid rgb(250, 250, 250)` }}
     >
       <div className="flex flex-col">
         <div className="text-3xl mb-4">{render(blok.title)}</div>
