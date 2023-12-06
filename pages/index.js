@@ -68,6 +68,12 @@ export default function Home({ story }) {
       <Head>
         <title>Rebound Global</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <meta
           name="google-site-verification"
           content="TVT_Q4O962FfeXNbvm_Cp93bPI8xP5R_0L4SfEXE1gI"
@@ -76,7 +82,7 @@ export default function Home({ story }) {
 
       {nav && <MainNavigation data={nav} />}
 
-      {showWelcome && (
+      {/* {showWelcome && (
         <>
           <div
             className={styles.WelcomeScreen}
@@ -100,7 +106,7 @@ export default function Home({ story }) {
             </button>
           </div>
         </>
-      )}
+      )} */}
 
       <StoryblokComponent blok={story.content} />
     </div>
@@ -109,6 +115,8 @@ export default function Home({ story }) {
 
 export async function getStaticProps({ preview }) {
   const slug = "home";
+
+  preview = true;
 
   const sbParams = {
     version: preview ? "draft" : "published",
