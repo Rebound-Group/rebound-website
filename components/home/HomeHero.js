@@ -9,6 +9,9 @@ const HomeHero = ({ blok }) => {
     >
       <div className="flex justify-center items-center text-center">
         {render(blok.text)}
+      </div>{" "}
+      <div className="flex justify-center items-center text-center">
+        {render(blok.subtext)}
       </div>
     </div>
   );

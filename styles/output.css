@@ -1311,9 +1311,22 @@ h1 {
   font-family: Playfair Display, serif;
 }
 
+h1 .subtext {
+  line-height: 1.5;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-top: 1em;
+  display: block;
+  font-family: Playfair Display, serif;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: calc(3.5rem * 0.8);
+  }
+
+  h1 .subtext {
+    font-size: calc(2rem * 0.8);
   }
 
   .text-2xl {
