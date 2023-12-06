@@ -82,32 +82,6 @@ export default function Home({ story }) {
 
       {nav && <MainNavigation data={nav} />}
 
-      {/* {showWelcome && (
-        <>
-          <div
-            className={styles.WelcomeScreen}
-            style={{
-              backgroundImage: `url(${welcomeScreenBlok.images[0].filename})`,
-            }}
-          >
-            <img
-              className="max-h-[125px]"
-              height="125px"
-              src={welcomeScreenBlok.logo.filename}
-            />
-            <div className="text-center mt-4 lg:mt-8 text-3xl font-serif">
-              {render(welcomeScreenBlok.title)}
-            </div>
-            <button
-              className="border border-melon rounded-full mt-4 lg:mt-8 py-4 px-8 text-melon"
-              onClick={() => setShowWelcome(false)}
-            >
-              {welcomeScreenBlok.cta_text}
-            </button>
-          </div>
-        </>
-      )} */}
-
       <StoryblokComponent blok={story.content} />
     </div>
   );
@@ -116,7 +90,7 @@ export default function Home({ story }) {
 export async function getStaticProps({ preview }) {
   const slug = "home";
 
-  preview = true;
+  // preview = true;
 
   const sbParams = {
     version: preview ? "draft" : "published",

@@ -36,7 +36,7 @@ export default function Page({ story }) {
 export async function getStaticProps({ params, preview }) {
   const slug = params.slug ? params.slug.join("/") : "home";
 
-  preview = true;
+  // preview = true;
 
   const sbParams = {
     version: preview ? "draft" : "published",
